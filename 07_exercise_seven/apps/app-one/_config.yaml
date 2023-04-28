@@ -1,0 +1,46 @@
+---
+configs:
+  # management-zone 
+  - id: management-zone-app-one
+    config:
+      name: app-one
+      parameters:
+        environment: app-one
+      template: ../shared/management-zone.json
+      skip: false
+    type:
+      api: management-zone
+
+  # alerting-profile
+  - id: alerting-profile-app-one
+    config:
+      name: profile-app-one
+      parameters:
+        mzId: ""
+      template: ../shared/alerting-profile.json
+      skip: false
+    type:
+      api: alerting-profile
+
+  # notification 
+  - id: email-team-app-one
+    config:
+      name: email-team-app-one
+      parameters:
+        alertingProfile: ""
+        recipient: team-app-one@example.com
+      template: ../shared/notification.json
+      skip: false
+    type:
+      api: notification
+
+  - id: email-team-app-one-k8s-nodes
+    config:
+      name: email-team-app-one-k8s-nodes
+      parameters:
+        alertingProfile: ""
+        recipient: team-app-one@example.com
+      template: ../shared/notification.json
+      skip: false
+    type:
+      api: notification

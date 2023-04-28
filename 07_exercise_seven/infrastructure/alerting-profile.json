@@ -1,0 +1,7 @@
+{
+  "displayName": "{{ .name }}",
+  "rules": [],
+  "managementZoneId": "{{ .mzId }}",
+  "mzId": "{{ .mzId }}",
+  "eventTypeFilters": []
+}

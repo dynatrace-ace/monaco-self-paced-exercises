@@ -1,0 +1,21 @@
+---
+configs:
+  # management-zone 
+  - id: management-zone-k8s-nodes
+    config:
+      name: k8s-nodes
+      template: management-zone.json
+      skip: false
+    type:
+      api: management-zone
+
+  # alerting-profile
+  - id: alerting-profile-k8s-nodes
+    config:
+      name: profile-k8s-nodes
+      parameters:
+        mzId: ""
+      template: alerting-profile.json
+      skip: false
+    type:
+      api: alerting-profile

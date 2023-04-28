@@ -1,0 +1,19 @@
+manifestVersion: "1.0"
+
+projects:
+  - name: apps
+    path: apps
+    type: grouping
+  - name: infrastructure
+    path: infrastructure
+
+environmentGroups:
+  - name: default
+    environments:
+      - name: development-environment
+        url:
+          type: environment
+          value: DT_TENANT_URL
+        auth:
+          token:
+            name: DT_API_TOKEN

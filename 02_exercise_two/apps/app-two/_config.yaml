@@ -1,0 +1,123 @@
+configs:
+  # auto-tag
+  - id: tagging-app-two
+    type:
+      api: auto-tag
+    config:
+      name: app-two-tag
+      template: ../shared/k8s-auto-tag.json
+      parameters:
+        namespace: app-two
+      skip: false
+  
+  # application-web 
+  - id: application-app-two
+    type:
+      api: application-web
+    config:
+      name: app-two
+      template: ../shared/application.json
+      skip: false
+
+  # app-detection-rule   
+  - id: application-detect-app-two
+    type:
+      api: app-detection-rule
+    config:
+      name: app-two-detect
+      template: ../shared/application-detection-rule.json
+      parameters:
+        applicationId:
+          type: reference
+          configType: application-web
+          configId: application-app-two
+          project: apps.app-two
+          property: id
+        pattern:
+          type: compound
+          format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
+          references:
+            - protocol
+            - applicationSubdomain
+            - ingressDomain
+        protocol: http
+        applicationSubdomain: simplenodeservice-app-two
+        ingressDomain:
+          name: INGRESS_DOMAIN
+          type: environment
+      skip: false
+
+  # management-zone 
+  - id: management-zone-app-two
+    type:
+      api: management-zone
+    config:
+      name: app-two
+      template: ../shared/management-zone.json
+      parameters:
+        environment: app-two
+      skip: false
+ 
+  # dashboard
+  - id: dashboard-app-two
+    type:
+      api: dashboard
+    config:
+      name: Dashboard app-two
+      template: ../shared/dashboard.json
+      parameters:
+        managementZoneId:
+          type: reference
+          configType: management-zone
+          configId: management-zone-app-two
+          project: apps.app-two
+          property: id
+        managementZoneName:
+          type: reference      
+          configType: management-zone
+          configId: management-zone-app-two
+          project: apps.app-two
+          property: name
+      skip: false
+
+  # synthetic-monitor 
+  - id: health-app-two
+    type:
+      api: synthetic-monitor
+    config:
+      name: app-two-healthcheck
+      template: ../shared/health-check-monitor.json
+      parameters:
+        description: Health check for simplenode in app-two
+        location:
+          type: reference
+          configType: synthetic-location
+          configId: synthetic-location-ace-box
+          project: infrastructure
+          property: id
+        managementZoneId:
+          type: reference        
+          configType: management-zone
+          configId: management-zone-app-two
+          project: apps.app-two
+          property: id
+        tag:
+          type: reference
+          configType: auto-tag
+          configId: tagging-app-two
+          project: apps.app-two
+          property: name 
+        url:
+          type: compound
+          format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
+          references:
+            - protocol
+            - applicationSubdomain
+            - ingressDomain
+        protocol: http
+        applicationSubdomain: simplenodeservice-app-two
+        ingressDomain:
+          name: INGRESS_DOMAIN
+          type: environment
+      skip: false
+
