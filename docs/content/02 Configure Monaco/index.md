@@ -149,13 +149,19 @@ The YAML file can contain multiple configurations instances that can build diffe
 
 A great way to start building your Monaco project is by starting off from an existing Dynatrace configuration. Even if you're starting with a fresh Dynatrace environment, it may be worth creating a sample configuration in the web UI first. Then you can use the Dynatrace Configuration API to export the properties of the configuration in JSON for use in Monaco. From there, you can use your configuration YAML file to add additional configurations.
 
-1. To use the Dynatrace Swagger UI, we need to get our API token which is stored in a Kubernetes Secret. On your VM, execute the command below to retrieve your Dynatrace API token.
+1. To use the Dynatrace Swagger UI, we need to create an API token.
 
-    ```bash
-    kubectl -n ace get secret monaco-dt-access-token -o jsonpath='{.data.apiToken}' | base64 -d
-    ```
 
-2. Paste your token into a notepad for later use
+
+2. To generate an access token, go to your Dynatrace environment and select `Access tokens` in the menu.
+3. Select `Generate new token`.
+4. Enter a name for your token. For example, `monaco-token`
+5. Select the following scopes for the token.
+    - Access problem and event feed, metrics, and topology (`DataExport`) (API v1) : Required for querying general information about your environment.
+    - Read configuration (`ReadConfig`) (API v2) : Required for reading existing auto-tags.
+    - Write configuration (`WriteConfig`) (API v2) : Required for creating your auto-tag.
+6. Select `Generate token`. 
+7. Paste your token into a notepad for later use.
 
 3. Open your Dynatrace environment, click on the profile icon on the top right and select `Configuration API`
 
