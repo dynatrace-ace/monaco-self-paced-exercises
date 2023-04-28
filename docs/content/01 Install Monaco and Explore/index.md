@@ -19,7 +19,23 @@
     ```bash
     shasum -c monaco.sha256
     ```
-5. Execute the command below to ensure Monaco is properly installed on your VM.
+    You should see the following output:
+    `monaco: OK`
+    
+3. Rename the specific executable to monaco
+   ```bash
+   mv monaco-linux-amd64 monaco
+   ```
+4. Make the binary executable
+   ```bash
+   chmod +x monaco
+   ```
+5. Install Dynatrace Configuration as Code CLI to a central location in your PATH.
+   ```bash
+   sudo mv monaco /usr/local/bin/
+   ```
+
+6. Execute the command below to ensure Monaco is properly installed on your machine.
 
     ```bash
     monaco
@@ -55,7 +71,3 @@
 
     Use "monaco [command] --help" for more information about a command.
     ```
-
-6. From the `Environments` tab, use the `View environment` button to open up your Dynatrace environment in a new window and sign in with the provided credentials.
-
-### We're now ready to kick off the lab!
