@@ -1,4 +1,4 @@
-## Ex 1: Automatic tagging rule
+## Exercise 1: Automatic tagging rule
 
 This exercise will begin by creating an automatic tagging rule via the Dynatrace web UI. We'll then use the Dynatrace Configuration API to export the automatic tag configuration in JSON format. This exported configuration will then be used to build our Monaco project files. Finally, once our project structure is complete, we'll remove our automatic tag via the Dynatrace web UI and re-create it using Monaco!
 
@@ -80,15 +80,37 @@ An environment definition consists of three parts:
 
     >**Note:** Environments can be grouped together using `Environment Groups`, a mechanism allowing you to target specific environments together when deploying, or to overwrite configuration properties for several environments with one override rather than one per environment.
 
-We'll now use Gitea to edit files in our repository.
 
-1. Go to your Gitea instance and open the `dt-exercises/01_exercise_one` repository
+1. Run the following command to create a directory.
+    ```bash
+    mkdir exercise-01    
+    ```
+2. Change to the new directory.
+    ```bash
+    cd exercise-01   
+    ```
+3. Create a deployment manifest file to instruct Dynatrace Configuration as Code what project to deploy and where to deploy it.
 
-    ![dt-exercises repo](../../assets/images/01_dt_exercises_repo.png)
+    ```bash
+    touch manifest.yaml
+    ```
 
-2. Open and edit (click on pencil icon) the `manifest.yaml` file
+4. Create a project directory to store the tagging configuration and change to it.
 
-3. Remove all contents in `manifest.yaml` and copy-paste the snippet below into it
+    ```bash
+    mkdir -p auto-tag
+    cd auto-tag
+    ```
+5. Create these two files:
+
+    ```bash
+    touch auto-tag.json auto-tag.yaml
+    ```
+    - The auto-tag.json will store the JSON configuration of the tagging configuration.
+    - The auto-tag.yaml will be the YAML configuration file which will list the configurations to be deployed.
+
+
+6. Open the deployment manifest file (manifest.yaml) in your text editor, paste in the configuration below.
 
     ```yaml
     ---
@@ -111,21 +133,15 @@ We'll now use Gitea to edit files in our repository.
     
     ```
 
-4. Update the url's `value` to your Dynatrace environment address. Include `https://` but ensure there is no trailing `/` at the end of the URL.
+7. Update the url's `value` to your Dynatrace environment address. Include `https://` but ensure there is no trailing `/` at the end of the URL.
 
     > **Tip:** You can find your Dynatrace environment URL on your dashboard page.
 
     > **Note:** The YAML value `DT_API_TOKEN` refers to an environment variable with the same name that we'll set later.
 
-5. Click on `Commit Changes`
+8. Save Changes to the file
 
-Return to the `01_exercise_one` repsitory root folder. Here you'll find a folder called `auto-tag` with two files `auto-tag.json` and `auto-tag.yaml`.
-
-Both files contain only placeholders for the moment. We'll need to update them.
-
-* The JSON file is a template used for our API payload we plan to use to create an automatic tagging rule.
-
-* The YAML file is used for the values we want to populate our JSON file with.
+Return to the `exercise-01` root folder. Here you'll find a folder called `auto-tag` with two files `auto-tag.json` and `auto-tag.yaml`.
 
 The YAML file can contain multiple configurations instances that can build different tag names and rules as Monaco will iterate through each instance and apply it to the JSON configuration template. In this exercise, we're simply deploying a single automatic tagging rule called `Owner`.
 
