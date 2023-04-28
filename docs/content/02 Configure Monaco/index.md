@@ -149,67 +149,62 @@ The YAML file can contain multiple configurations instances that can build diffe
 
 A great way to start building your Monaco project is by starting off from an existing Dynatrace configuration. Even if you're starting with a fresh Dynatrace environment, it may be worth creating a sample configuration in the web UI first. Then you can use the Dynatrace Configuration API to export the properties of the configuration in JSON for use in Monaco. From there, you can use your configuration YAML file to add additional configurations.
 
-1. To use the Dynatrace Swagger UI, we need to create an API token.
-
-
-
-2. To generate an access token, go to your Dynatrace environment and select `Access tokens` in the menu.
-3. Select `Generate new token`.
-4. Enter a name for your token. For example, `monaco-token`
-5. Select the following scopes for the token.
+1. To use the Dynatrace Swagger UI, we need to create an API token. 
+   To generate an access token, go to your Dynatrace environment and select `Access tokens` in the menu.
+2. Select `Generate new token`.
+3. Enter a name for your token. For example, `monaco-token`
+4. Select the following scopes for the token.
     - Access problem and event feed, metrics, and topology (`DataExport`) (API v1) : Required for querying general information about your environment.
     - Read configuration (`ReadConfig`) (API v2) : Required for reading existing auto-tags.
     - Write configuration (`WriteConfig`) (API v2) : Required for creating your auto-tag.
-6. Select `Generate token`. 
-7. Paste your token into a notepad for later use.
+5. Select `Generate token`. 
+6. Paste your token into a notepad for later use.
 
-3. Open your Dynatrace environment, click on the profile icon on the top right and select `Configuration API`
+7. Open your Dynatrace environment, click on the profile icon on the top right and select `Configuration API`
 
-4. Once in the Dynatrace Configuration API Swagger UI, click on `Authorize`
+8. Once in the Dynatrace Configuration API Swagger UI, click on `Authorize`
 
     ![API authorization](../../assets/images/01_config_api_auth.png)
 
-5. Paste your token into the value field and click on `Authorize` and then  `Close`
+9. Paste your token into the value field and click on `Authorize` and then  `Close`
 
     >**Tip:** The token value is not checked when you click on `Authorize` so ensure you're pasting the correct value. If you make a mistake here, the next steps will fail with `401 Error: Unauthorized`
 
-6. Now we need to get the ID of the tag `Owner` we manually created through the web UI earlier. Find and expand the `Automatically applied tags` endpoint.
+10. Now we need to get the ID of the tag `Owner` we manually created through the web UI earlier. Find and expand the `Automatically applied tags` endpoint.
 
     ![Auto tags API endpoint](../../assets/images/01_auto_tags_api.png)
 
-7. Expand `GET /autoTags`
-
-8. Click on `Try it out`
-
-9. Click on `Execute`
-
-10. Scroll down to the response body and copy the ID of the `Owner` tag
-
-    ![Owner tag ID](../../assets/images/01_owner_tag_id.png)
-
-11. To get the actual configuration of the `Owner` tag expand `GET /autoTags/{id}`.
+11. Expand `GET /autoTags`
 
 12. Click on `Try it out`
 
-13. Paste the ID into the required `id` field
+13. Click on `Execute`
 
-14. Set the boolean flag `includeProcessGroupReferences` to `true`
+14. Scroll down to the response body and copy the ID of the `Owner` tag
 
-15. Click on `Execute`
+    ![Owner tag ID](../../assets/images/01_owner_tag_id.png)
 
-16. Scroll down to the response body
+15. To get the actual configuration of the `Owner` tag expand `GET /autoTags/{id}`.
+
+16. Click on `Try it out`
+
+17. Paste the ID into the required `id` field
+
+18. Set the boolean flag `includeProcessGroupReferences` to `true`
+
+19. Click on `Execute`
+
+20. Scroll down to the response body
 
     ![Owner tag config JSON](../../assets/images/01_owner_tag_json.png)
 
     Copy the entire response body to your clipboard, including opening and closing curly brackets.
 
-17. Go to Gitea and edit file `dt-exercises/01_exercise_one/auto-tag/auto-tag.json`
+21. Go to the `exercise-01/auto-tag` folder and edit file `auto-tag.json`
 
-    ![Edit config template](../../assets/images/01_owner_tag_template.png)
+22. Paste the copied response body from the Dynatrace API output, but don't save the changes just yet.
 
-18. Remove the placeholder and paste the copied response body from the Dynatrace API output, but don't commit the changes just yet.
-
-19. The first few lines contain identifiers of the existing configuration which cannot be included in the payload when creating a configuration. Therefore, we need to remove these lines starting with and including line `"metadata"` until and including line `"id"`.
+23. The first few lines contain identifiers of the existing configuration which cannot be included in the payload when creating a configuration. Therefore, we need to remove these lines starting with and including line `"metadata"` until and including line `"id"`.
 
     The desired file contents should now look like the snippet below:
 
@@ -251,13 +246,13 @@ A great way to start building your Monaco project is by starting off from an exi
     }
     ```
 
-20. Commit the changes
+24. Save the file.
 
 ### Step 4 - Build the configuration YAML
 
-1. Now let's edit file `dt-exercises/01_exercise_one/auto-tag/auto-tag.yaml`
+1. Now let's edit file `exercise-01/auto-tag/auto-tag.yaml`
 
-2. Remove the placeholder and copy the contents below into the YAML file
+2. Copy the contents below into the YAML file
 
     ```yaml
     configs:
@@ -273,7 +268,7 @@ A great way to start building your Monaco project is by starting off from an exi
     >
     > The config YAML tells Monaco where to find the configuration JSON template (here in the file `auto-tag.json`).
 
-3. Commit the changes
+3. Save the changes
 
 ### Step 5 - Delete the tagging rule in Dynatrace
 
@@ -285,32 +280,14 @@ Now that our project files are defined for a tagging rule, we'll manually delete
 
 3. Save changes
 
-### Step 6 - Pull latest changes to your local repo
+### Step 6 - Create automatic tagging rule via Monaco
 
-We'll now pull the changes we made in Gitea to our local repo and execute Monaco to re-deploy the automatic tagging rule.
+We'll now execute Monaco to re-deploy the automatic tagging rule.
 
-1. Open a terminal through your Dynatrace University event page to access your VM.
-
-    > **Note:** Dynatrace University provides a browser-based SSH client (recommended). If you prefer, you can use your own SSH client with the VM credentials shown on the `Environments` tab.
-
-2. Navigate into the `01_exercise_one` directory
+4. Create a local environment variable called `DT_API_TOKEN` and populate it with the Dynatrace API token that you created.
 
     ```bash
-    cd ~/01_exercise_one
-    ```
-  
-3. Execute the following command to pull down all the changes we made in Gitea
-
-    ```bash
-    git pull
-    ```
-
-    > **Note:** In case you experience an issue with your git upstream, you can run the following command: `git pull --set-upstream gitea main`
-
-4. Create a local environment variable called `DT_API_TOKEN` and populate it with the Dynatrace API token that's stored in a Kubernetes secret.
-
-    ```bash
-    export DT_API_TOKEN=$(kubectl -n ace get secret monaco-dt-access-token -o jsonpath='{.data.apiToken}' | base64 -d)
+    export DT_API_TOKEN=PASTE-YOUR-API-TOKEN-HERE
     ```
 
     Verify that the environment variable is created correctly
@@ -329,6 +306,10 @@ We'll now pull the changes we made in Gitea to our local repo and execute Monaco
 
     [Optional] The `-e` / `--environment` flag can be used to target a specific environment. By default, Monaco will deploy to all environments.
 
+    [Optional] The `-g` / `--group` flag can be used to target a specific environment groups.
+    
+    For the details, you can visit [monaco deploy command reference](https://www.dynatrace.com/support/help/manage/configuration-as-code/reference/commands#deploy)
+    
       ```bash
       monaco deploy --dry-run manifest.yaml
       ```
