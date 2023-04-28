@@ -1,12 +1,12 @@
-## Ex 3: Download all configuration
+## Exercise 2: Download all configuration
 
 In this exercise, we'll see how Monaco can be used to download an existing environment's configuration. This is particularly handy when there are numerous existing custom configurations. You can download your configuration and push it into a repository, use it as a starting point for managed configuration changes, use it as a backup for your existing configuration or use it to migrate configurations from one environment to another.
 
 ### Step 1 - Explore different download options
 
-First, let's take a look at the different options that Monaco provides to download configurations.
+First, let's take a look at the different options that Monaco provides to [download configurations](https://www.dynatrace.com/support/help/manage/configuration-as-code/reference/commands#download).
 
-1. Open the SSH client that's connected to your VM and run the following command:
+1.  Run the following command:
 
     ```bash
     monaco download --help
@@ -51,10 +51,11 @@ First, let's take a look at the different options that Monaco provides to downlo
 
 ### Step 2 - Download environment configuration
 
-1. Navigate into the directory of this exercise
+1. Create a new directory for this exercise
 
     ```bash
-    cd ~/03_exercise_three
+    mkdir exercise-02   
+    cd exercise_02
     ```
 
 2. You can use command flags to download an environment directly without using a manifest.
@@ -84,10 +85,10 @@ First, let's take a look at the different options that Monaco provides to downlo
     echo $DT_API_TOKEN
     ```
 
-    If not, recreate it from the Kubernetes secret
+    If not, recreate it by copying and pasting your API token from the previous exercise.
 
     ```bash
-    export DT_API_TOKEN=$(kubectl -n ace get secret monaco-dt-access-token -o jsonpath='{.data.apiToken}' | base64 -d)
+    export DT_API_TOKEN=PASTE-YOUR-API-TOKEN-HERE
     ```
 
 3. Let's now download the entire configuration using the following command, where `XXX` must be replaced by your Dynatrace environment URL noted earlier (without any trailing `/`):
@@ -112,39 +113,4 @@ First, let's take a look at the different options that Monaco provides to downlo
 
     > **Note:** For the sake of this exercise we ignore any errors that point out a missing scope. In your real world environment you want to make sure that all required scopes are assigned.
 
-### Step 3 - Store configuration in repository
-
-1. Let's take a look at folder structure of the downloaded configuration.
-
-    ```text
-    ├── backup
-    ...
-    │    ├── builtin:management-zones
-    │    │    ├── 9f3d6cde-112f-3cc6-8790-172ff9e84ef2.json
-    │    │    ├── config.yaml
-    │    │    └── ...
-    │    ├── builtin:rum.web.app-detection
-    │    │    ├── ...
-    │    │    └── config.yaml
-    ...
-    │    └── synthetic-location
-    │         ├── config.yaml
-    │         └── SYNTHETIC_LOCATION-22D8C8858090B828.json
-    └── manifest.yaml
-    ```
-
-    Notice that a manifest file was generated automatically by Monaco. This manifest file points to the Dynatrace Managed environment where the configuration was downloaded from.
-
-2. We can now push this content back to our git repository:
-
-   ```bash
-   git add .
-   git commit -m "backup config"
-   git push
-   ```
-
-3. Go to Gitea and inspect the newly uploaded Dynatrace config in `dt-exercises/03_exercise_three/easyTravel`
-
-   ![Downloaded configuration](../../assets/images/03_downloaded_config.png)
-
-### This concludes Exercise 3, GitOps is yet another step closer!
+### This concludes Exercise 2.
