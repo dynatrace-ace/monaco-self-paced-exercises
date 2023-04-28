@@ -1,46 +1,24 @@
-## Lab environment
+## Install Dynatrace Configuration as Code CLI
 
-### Overview
+**Important Note:** Installation steps vary depending on your operating system. This guide provides installation instructions for Linux 64-bit systems. For MacOS and Windows,    please refer to the [installation guide](https://www.dynatrace.com/support/help/manage/configuration-as-code/installation).
+   
+1. Download the latest version of the Dynatrace Configuration as Code CLI tool
 
-Each participant has a dedicated lab environment that includes:
+    ```bash
+    curl -L https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/latest/download/monaco-linux-amd64 -o monaco-linux-amd64
+    ```
 
-* Dynatrace environment (a.k.a. Dynatrace tenant)
-* Kubernetes cluster
-  * Dashboard (links and app status)
-  * Jenkins (automation server)
-  * Gitea (Git server)
-  * Applications (app-one, app-two, app-three)
-  * Container registry
-  * OneAgent (deployed by Dynatrace Operator)
-  * Nginx (reverse proxy)
-* Synthetic ActiveGate (private location)
-* Monaco (command line interface tool)
-
-![Lab environment](../../assets/images/00_lab_environment.png)
-
-### Connect
-
-1. Log in on `Dynatrace University`
-    <https://university.dynatrace.com>
-
-2. On your university dashboard, you'll see an event named `GitOps for Observability and Security with Configuration as Code`. Go ahead and open up the event.
-
-3. Select the `Environments` tab. Click on `Open terminal` to display an interactive shell at the bottom of the page. You can use this terminal for the remainder of the session.
-
-    > **Note:** Dynatrace University provides a browser-based SSH client (recommended). If you prefer, you can use your own SSH client with the VM credentials shown on the `Environments` tab.
-
-4. The terminal you opened will display a link to a dashboard. This dashboard is specific to you and contains all credentials and links for the tools you'll need in the following exercises.
-
-    > **Note:** Your instructor will share _Basic Auth_ credentials needed to open the dashboard page.
-
-    Open **Gitea** and **Jenkins** in new tabs and log in with their respective credentials shown on the dashboard.
-
-    ![Dashboard page](../../assets/images/00_dashboard_page.png)
-
-    > **Note:** In addition to Dynatrace University, all lab instructions are hosted on Gitea. Monaco documentation can be found as part of the [official Dynatrace docs](https://www.dynatrace.com/support/help/setup-and-configuration/monitoring-as-code).
-
-    > **Note:** You can retrieve the link to your dashboard at any point by running `echo "http://$(kubectl -n ace get ingress dashboard -o jsonpath='{.spec.rules[0].host}')/"`.
-
+2. (Optional) Verify the downloaded binary using the checksum.
+    
+    To verify that the downloaded binary is valid, download its checksum file:
+    ```bash
+    curl -L https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/latest/download/monaco-linux-amd64.sha256 -o monaco.sha256
+    ```
+    
+    Verify the downloaded binary using the checksum:
+    ```bash
+    shasum -c monaco.sha256
+    ```
 5. Execute the command below to ensure Monaco is properly installed on your VM.
 
     ```bash
