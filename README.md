@@ -1,1 +1,1 @@
-# monaco-hands-on-exercises
+# monaco self paced exercises
