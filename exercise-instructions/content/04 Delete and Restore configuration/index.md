@@ -47,9 +47,17 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
 ### Step 2 - Prepare the delete file
 
 1. Create a new directory for this exercise and copy the contents of the manifest file from Exercise-3.
-   Please make sure to locate the correct directory of exercise-3. But don´t worry, below is the content of the manifest file that you can copy and paste.
+   Please make sure to locate the correct directory of exercise-3.
  
-   ```yaml
+   ```bash
+    mkdir exercise-04
+    cd exercise-04
+    cp ../exercise-03/manifest.yaml .
+   ```
+
+   But don´t worry, below is the content of the manifest file that you can copy and paste.
+ 
+    ```yaml
     ---
     manifestVersion: "1.0"
 
@@ -71,65 +79,33 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
               token:
                 name: DT_API_TOKEN
    ```
-  
-   ```bash
-    mkdir exercise-04
-    cd exercise-04
-    cp ../exercise-03/manifest.yaml .
-   ```
-
+ 
 2. Save the changes
 
-3. Still in Gitea, edit file `dt-exercises/06_exercise_six/delete.yaml` to make it look like the snippet below
-
+3. Create a new file `delete.yaml` on the same directory to make it look like the snippet below.
+    
     ```yaml
     delete:
       - "auto-tag/Owner"
     ```
 
-4. Commit the changes
+4. Save the changes. Confirm that both `manifest.yaml` and `delete.yaml` exist in the current directory
 
-### Step 3 - Pull changes and run Monaco
+### Step 3 - Run Monaco
 
-1. Open the SSH client that's connected to your VM and navigate into the directory of this exercise
-
-    ```bash
-    cd ~/06_exercise_six
-    ```
-
-2. Execute the following command to pull down changes made in Gitea
-
-    ```bash
-    git pull
-    ```
-
-    > **Note:** In case you experience an issue with your git upstream, you can run the following command: `git pull --set-upstream gitea main`
-
-    Confirm that both `manifest.yaml` and `delete.yaml` are pulled into the current directory
-
-    ```text
-    From http://****:3000/dt-exercises/06_exercise_six
-      dfc521b..dfbbfc3  main       -> gitea/main
-    Updating dfc521b..dfbbfc3
-    Fast-forward
-      delete.yaml   |  3 ++-
-      manifest.yaml | 19 ++++++++++++++++++-
-      2 files changed, 20 insertions(+), 2 deletions(-)
-    ```
-
-3. Verify that the environment variable `DT_API_TOKEN` still exists
+1. Verify that the environment variable `DT_API_TOKEN` still exists
 
     ```bash
     echo $DT_API_TOKEN
     ```
 
-    If not, recreate it from the Kubernetes secret
+    If not, recreate it from the token you created in the previous exercises.
 
     ```bash
-    export DT_API_TOKEN=$(kubectl -n ace get secret monaco-dt-access-token -o jsonpath='{.data.apiToken}' | base64 -d)
+    export DT_API_TOKEN=PASTE-YOUR-API-TOKEN-HERE
     ```
 
-4. Run Monaco
+2. Run Monaco
 
     ```bash
     monaco delete manifest.yaml delete.yaml
@@ -142,7 +118,7 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
     2022/12/21 01:28:41 INFO  Deleting configs of type auto-tag...
     ```
 
-5. Confirm in your Dynatrace environment that the `Owner` tag doesn't exist anymore (refresh the page if it's already open)
+3. Confirm in your Dynatrace environment that the `Owner` tag doesn't exist anymore (refresh the page if it's already open)
 
 ### Step 4 - Restore configuration from backup
 
