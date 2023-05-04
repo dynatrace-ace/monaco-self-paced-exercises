@@ -46,7 +46,7 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
 
 ### Step 2 - Prepare the delete file
 
-1. Create a new directory for this exercise and copy the contents of the manifest file from Exercise-3.
+1. Create a new directory for this exercise and copy the contents of the **manifest.yaml** file from Exercise-3.
    Please make sure to locate the correct directory of exercise-3.
  
    ```bash
@@ -55,7 +55,7 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
     cp ../exercise-03/manifest.yaml .
    ```
 
-   But don´t worry, below is the content of the manifest file that you can copy and paste.
+   But don´t worry, below is the content of the manifest.yaml file that you can copy and paste.
  
     ```yaml
     ---
@@ -126,11 +126,7 @@ Now that we deleted configuration, we want to restore it from the backup we crea
 
 In addition to a backup/restore use case, this workflow also comes in handy when you migrate between environments. Monaco doesn't care whether a configuration is deployed to the environment it was initially downloaded from, a completely separate environment or even multiple environments.
 
-1. Navigate to and explore the directory of the backup we created earlier (exercise 3):
-
-    ```bash
-    cd ~/03_exercise_three
-    ```
+1. Navigate to and explore the directory of the backup we created earlier (exercise_02):
 
     Your directory should look similar to this:
 
@@ -157,4 +153,4 @@ In addition to a backup/restore use case, this workflow also comes in handy when
 
 4. Confirm in your Dynatrace environment that the `Owner` tag is restored (refresh the page if it's already open).
 
-#### Congratulations on completing Exercise 6!
+#### Congratulations on completing Exercise 4!
