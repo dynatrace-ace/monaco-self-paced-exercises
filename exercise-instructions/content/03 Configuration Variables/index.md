@@ -42,19 +42,20 @@ mv <DOWNLOADED-EXERCISE-FOLDER-PATH> .
     ```
 
 The folder includes two Monaco projects:
-A project "infrastructure" that contains generic configuration related to the underlying infrastructure:
-Auto tagging rules
-Request attributes
-Synthetic locations
 
-A project "apps" that contains configuration specific to apps app-one and app-two:
-Application definition
-Application detection rules
-Auto tagging rules
-Calculated services metrics
-Dashboards
-Management zones
-Synthetic monitors
+A project "**infrastructure**" that contains generic configuration related to the underlying infrastructure:
+- Auto tagging rules
+- Request attributes
+- Synthetic locations
+
+A project "**apps**" that contains configuration specific to apps app-one and app-two:
+- Application definition
+- Application detection rules
+- Auto tagging rules
+- Calculated services metrics
+- Dashboards
+- Management zones
+- Synthetic monitors
 
 #### Application configuration
 
