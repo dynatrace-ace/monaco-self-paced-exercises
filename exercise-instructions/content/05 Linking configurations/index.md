@@ -1,10 +1,15 @@
-## Ex 7: Linking configurations
+## Exercise 5: Linking configurations
 
 In this exercise, we'll see how we can link multiple configurations without having to figure out the IDs of those linked configurations. Instead, we'll reference them using Monaco configuration instances and let Monaco figure out the actual IDs, dependencies and priorities!
 
 ### Step 1 - Take a look at the projects
 
-In Gitea, navigate to `dt-exercises/07_exercise_seven`
+Download an example Monaco project (exercise-05-to-download) from a shared repository and copy it into a newly created folder.
+```bash
+mkdir exercise-05
+cd exercise-05
+mv <DOWNLOADED-EXERCISE-FOLDER-PATH> .
+```
 
 You will find a standard Monaco setup:
 
@@ -21,7 +26,6 @@ You will find a standard Monaco setup:
 │    ├── alerting-profile.json
 │    └── management-zone.json
 ├── manifest.yaml
-└── monaco.Jenkinsfile
 ```
 
 There are two projects, `apps` and `infrastructure`. Both projects contain configurations with dependencies.
@@ -36,7 +40,7 @@ If we link these configurations together, Monaco can create all of them in one g
 
 ### Step 2 - Link the alerting profile to the management zone
 
-1. In Gitea, open `dt-exercises/07_exercise_seven/infrastructure/_config.yaml`
+1. Open `exercise-05/infrastructure/_config.yaml`
 
     ```yaml
     ---
