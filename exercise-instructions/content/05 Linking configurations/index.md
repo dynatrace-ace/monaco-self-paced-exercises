@@ -70,7 +70,7 @@ If we link these configurations together, Monaco can create all of them in one g
 
     Configuration `alerting-profile-k8s-nodes` requires a parameter called `mzId`. This is used in the creation of the alerting profile.
 
-2. Open `dt-exercises/07_exercise_seven/infrastructure/alerting-profile.json`.
+2. Open `exercise-05/infrastructure/alerting-profile.json`.
 
     At the bottom, it contains two variables that point to the management-zone IDs.
 
@@ -82,7 +82,7 @@ If we link these configurations together, Monaco can create all of them in one g
 
     No changes are needed in this file.
 
-3. In `dt-exercises/07_exercise_seven/infrastructure/_config.yaml`, looking at the definitions `alerting-profile-k8s-nodes`  configuration the `mzId` variable has been created, we need to supply the mapping for this variable.
+3. In `infrastructure/_config.yaml`, looking at the definitions `alerting-profile-k8s-nodes`  configuration the `mzId` variable has been created, we need to supply the mapping for this variable.
 
     ```yaml
      # alerting-profile
@@ -130,7 +130,7 @@ If we link these configurations together, Monaco can create all of them in one g
     mzId: [ "infrastructure", "management-zone", "management-zone-k8s-nodes", "id" ]
     ```
 
-4. With the information above, we can now edit `dt-exercises/07_exercise_seven/infrastructure/_config.yaml` to make it look like the snippet below
+4. With the information above, we can now edit `infrastructure/_config.yaml` to make it look like the snippet below
 
     ```yaml
     ---
@@ -156,13 +156,21 @@ If we link these configurations together, Monaco can create all of them in one g
           api: alerting-profile
     ```
 
-5. Commit the changes
+5. Save the changes
 
-### Step 4 - Trigger the pipeline
+### Step 4 - Run Monaco
 
-1. In Jenkins, trigger the pipeline
+1. First run it with a dry-run option
 
-    `Exercise 7 - Linking configuration`
+    ```bash
+      monaco deploy manifest.yaml --dry-run
+    ```
+
+2. If there is no validation failure, continue with the real deployment.
+
+    ```bash
+      monaco deploy manifest.yaml
+    ```
 
 ### Step 5 - View results in Dynatrace
 
@@ -176,11 +184,11 @@ If we link these configurations together, Monaco can create all of them in one g
 
 ---
 
-## Ex 7: Linking configurations - Part 2
+## Exercise 5: Linking configurations - Part 2
 
 Now you need to complete the linking for the `apps` project.
 
-In Gitea, navigate to `dt-exercises/07_exercise_seven/manifest.yaml` and edit the file. Uncomment the `apps` project and commit your changes. Ensure that the indentation is correct. The file should look like this:
+Go to `exercise-05/manifest.yaml` and edit the file. Uncomment the `apps` project and save your changes. Ensure that the indentation is correct. The file should look like this:
 
 ```yaml
 manifestVersion: "1.0"
@@ -213,15 +221,18 @@ To help you, the following references need to be created:
 
 * Notification `email-team-app-one-k8s-nodes` must reference the alerting profile in the `infrastructure` project.
 
-Once you have made your changes push your changes to Dynatrace by triggering the pipeline `Exercise 7 - Linking configuration`
+Once you have made your changes push your changes to Dynatrace by triggering the monaco command.
 
+```bash
+  monaco deploy manifest.yaml
+```
 ---
 
-### Ex 7: Linking configurations - Part 2 - Solution
+### Exercise 5: Linking configurations - Part 2 - Solution
 
 We will walk through the changes required to link `notification` > `alerting-profile` > `management-zone` for the `apps` project.
 
-1. Open `dt-exercises/07_exercise_seven/apps/app-one/_config.yaml`.
+1. Open `exercise-05/apps/app-one/_config.yaml`.
 
     The required references are:
 
@@ -283,12 +294,14 @@ We will walk through the changes required to link `notification` > `alerting-pro
 
     >**Note:** The mentioned project `apps.app-one` is of the type _grouping projects_ (as opposed to _simple projects_). That's why a `.` separator is used. You can leave out the project altogether (like halfway in the snippet above), in which case Monaco will default to the local project, in this case `apps.app-one`.
 
-2. In Jenkins, trigger the pipeline
+2. Run Monaco
 
-    `Exercise 7 - Linking configuration`
+   ```bash
+    monaco deploy manifest.yaml
+   ```
 
 3. Confirm in Dynatrace, that you do indeed have all the configurations and that they are correctly linked to each other in this way:
 
     `notification` > `alerting-profile` > `management-zone`
 
-### This concludes the Exercise 7 and the training!
+### This concludes the Exercise 5 and the training!
