@@ -42,7 +42,7 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
 
 3. Confirm that tag `Owner` still exist
 
-    ![Owner tag](../../assets/images/05_owner_tag_ui.png)
+    ![Owner tag](../../assets/images/04_owner_tag_ui.png)
 
 ### Step 2 - Prepare the delete file
 
