@@ -1,4 +1,4 @@
-## Ex 6: Delete and restore configuration
+## Exercise 4: Delete and restore configuration
 In this exercise, we'll use Monaco to delete a specific configuration. Upon deletion, we want to restore all configs from the backup created earlier.
 
 Configurations which aren't needed anymore can also be deleted in an automated fashion. The `delete` command is a convenient way to remove one or more configurations from one or more Dynatrace environments. For example, Monaco can be used to clean up ephemeral configurations in development environments.
@@ -34,7 +34,7 @@ delete:
 
 ### Step 1 - Verify existence of target object
 
-Since we'll be deleting the auto tagging rule created in exercise one, let's make sure the tag still exists.
+Since we'll be deleting the auto tagging rule created in exercise-1, let's make sure the tag still exists.
 
 1. Open the Dynatrace web UI and navigate to `Manage` > `Settings`
 
@@ -46,14 +46,39 @@ Since we'll be deleting the auto tagging rule created in exercise one, let's mak
 
 ### Step 2 - Prepare the delete file
 
-1. In Gitea, copy the contents of file
-`dt-exercises/03_exercise_one/manifest.yaml`
-and paste it into
-`dt-exercises/06_exercise_six/manifest.yaml`
+1. Create a new directory for this exercise and copy the contents of the manifest file from Exercise-3.
+   Please make sure to locate the correct directory of exercise-3. But don´t worry, below is the content of the manifest file that you can copy and paste.
+ 
+   ```yaml
+    ---
+    manifestVersion: "1.0"
 
-    > **Tip:** Both files should be identical
+    projects:
+      - name: apps
+        path: apps
+        type: grouping
+      - name: infrastructure
+        path: infrastructure
 
-2. Commit the changes
+    environmentGroups:
+      - name: default
+        environments:
+          - name: development-environment
+            url:
+              type: environment
+              value: DT_TENANT_URL
+            auth:
+              token:
+                name: DT_API_TOKEN
+   ```
+  
+   ```bash
+    mkdir exercise-04
+    cd exercise-04
+    cp ../exercise-03/manifest.yaml .
+   ```
+
+2. Save the changes
 
 3. Still in Gitea, edit file `dt-exercises/06_exercise_six/delete.yaml` to make it look like the snippet below
 
