@@ -153,8 +153,8 @@ Now that we have defined a variable in the JSON template, we can assign values t
 
 1. As a last step, go to your Dynatrace environment and verify that Monaco updated the application settings.
 
-    ![RUM coverage app-one](../../assets/images/04_rum_app1.png)
+    ![RUM coverage app-one](../../assets/images/03_rum_app1.png)
 
-    ![RUM coverage app-two](../../assets/images/04_rum_app2.png)
+    ![RUM coverage app-two](../../assets/images/03_rum_app2.png)
 
 ### This concludes Exercise 3!
