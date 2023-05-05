@@ -1,6 +1,6 @@
 ## Cleanup
 
-Before closing this self-paced exercises, let’s make sure we clean up all the resources we created.
+Before closing this self-paced training, let’s make sure we clean up all the resources we created.
 
 Configurations which aren't needed anymore can also be deleted in an automated fashion via Monaco. The `delete` command is a convenient way to remove multiple configurations from one or more Dynatrace environments. Therefore let us utilize Monaco to clean up the Dynatrace environment.
 
