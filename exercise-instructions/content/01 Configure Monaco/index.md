@@ -149,62 +149,52 @@ The YAML file can contain multiple configurations instances that can build diffe
 
 A great way to start building your Monaco project is by starting off from an existing Dynatrace configuration. Even if you're starting with a fresh Dynatrace environment, it may be worth creating a sample configuration in the web UI first. Then you can use the Dynatrace Configuration API to export the properties of the configuration in JSON for use in Monaco. From there, you can use your configuration YAML file to add additional configurations.
 
-1. To use the Dynatrace Swagger UI, we need to create an API token. 
-   To generate an access token, go to your Dynatrace environment and select `Access tokens` in the menu.
-2. Select `Generate new token`.
-3. Enter a name for your token. For example, `monaco-token`
-4. Select the following scopes for the token.
-    - Access problem and event feed, metrics, and topology (`DataExport`) (API v1) : Required for querying general information about your environment.
-    - Read configuration (`ReadConfig`) (API v2) : Required for reading existing auto-tags.
-    - Write configuration (`WriteConfig`) (API v2) : Required for creating your auto-tag.
-5. Select `Generate token`. 
-6. Paste your token into a notepad for later use.
+1. To use the Dynatrace Swagger UI, we need to enter the API token (`Monaco-API-Token`) that was created before. 
+  Open your Dynatrace environment, click on the profile icon on the top right and select `Configuration API`
 
-7. Open your Dynatrace environment, click on the profile icon on the top right and select `Configuration API`
-
-8. Once in the Dynatrace Configuration API Swagger UI, click on `Authorize`
+2. Once in the Dynatrace Configuration API Swagger UI, click on `Authorize`
 
     ![API authorization](../../assets/images/01_config_api_auth.png)
 
-9. Paste your token into the value field and click on `Authorize` and then  `Close`
+3. Paste your token into the value field and click on `Authorize` and then  `Close`
 
     >**Tip:** The token value is not checked when you click on `Authorize` so ensure you're pasting the correct value. If you make a mistake here, the next steps will fail with `401 Error: Unauthorized`
 
-10. Now we need to get the ID of the tag `Owner` we manually created through the web UI earlier. Find and expand the `Automatically applied tags` endpoint.
+4. Now we need to get the ID of the tag `Owner` we manually created through the web UI earlier. Find and expand the `Automatically applied tags` endpoint.
 
     ![Auto tags API endpoint](../../assets/images/01_auto_tags_api.png)
 
-11. Expand `GET /autoTags`
+5. Expand `GET /autoTags`
 
-12. Click on `Try it out`
+6. Click on `Try it out`
 
-13. Click on `Execute`
+7. Click on `Execute`
 
-14. Scroll down to the response body and copy the ID of the `Owner` tag
+8. Scroll down to the response body and copy the ID of the `Owner` tag
 
     ![Owner tag ID](../../assets/images/01_owner_tag_id.png)
 
-15. To get the actual configuration of the `Owner` tag expand `GET /autoTags/{id}`.
+9. To get the actual configuration of the `Owner` tag expand `GET /autoTags/{id}`.
 
-16. Click on `Try it out`
+10. Click on `Try it out`
 
-17. Paste the ID into the required `id` field
+11. Paste the ID into the required `id` field
 
-18. Set the boolean flag `includeProcessGroupReferences` to `true`
+12. Set the boolean flag `includeProcessGroupReferences` to `true`
 
-19. Click on `Execute`
+13. Click on `Execute`
 
-20. Scroll down to the response body
+14. Scroll down to the response body
 
     ![Owner tag config JSON](../../assets/images/01_owner_tag_json.png)
 
     Copy the entire response body to your clipboard, including opening and closing curly brackets.
 
-21. Go to the `exercise-01/auto-tag` folder and edit file `auto-tag.json`
+15. Go to the `exercise-01/auto-tag` folder and edit file `auto-tag.json`
 
-22. Paste the copied response body from the Dynatrace API output, but don't save the changes just yet.
+16. Paste the copied response body from the Dynatrace API output, but don't save the changes just yet.
 
-23. The first few lines contain identifiers of the existing configuration which cannot be included in the payload when creating a configuration. Therefore, we need to remove these lines starting with and including line `"metadata"` until and including line `"id"`.
+17. The first few lines contain identifiers of the existing configuration which cannot be included in the payload when creating a configuration. Therefore, we need to remove these lines starting with and including line `"metadata"` until and including line `"id"`.
 
     The desired file contents should now look like the snippet below:
 
@@ -246,7 +236,7 @@ A great way to start building your Monaco project is by starting off from an exi
     }
     ```
 
-24. Save the file.
+18. Save the file.
 
 ### Step 4 - Build the configuration YAML
 
