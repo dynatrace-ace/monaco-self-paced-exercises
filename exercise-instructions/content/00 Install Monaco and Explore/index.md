@@ -1,3 +1,7 @@
+## Overview
+
+## Prerequisites
+
 ## Prepare your Dynatrace environment (a.k.a. Dynatrace tenant)
 
 1. Access to your Dynatrace environment, in the Dynatrace menu, select `Access tokens`
