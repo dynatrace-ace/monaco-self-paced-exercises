@@ -2,7 +2,7 @@
 
 Applying manual changes to monitoring configuration is outdated as it takes a hefty toll on manageability and slows down innovation.
 
-In this self-paced exercises, you will learn how to:
+In this self-paced training, you will learn how to:
 - Use the Dynatrace Monitoring-as-Code toolset to configure Dynatrace across different environments
 - Create reusable and scalable configuration templates
 - Backup and rollback your Dynatrace environment configuration
