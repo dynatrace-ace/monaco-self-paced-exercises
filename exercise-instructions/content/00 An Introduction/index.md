@@ -10,7 +10,7 @@ In this self-paced training, you will learn how to:
 
 ## Exercises and Exercise Samples
 
-Training guides as well as exercise samples to download can be found in the below structure:
+Training guides as well as exercise samples to download can be found in the below links:
 
 - [Exercises](exercise-instructions)
      - [00 An Introduction](exercise-instructions/content/00%20An%20Introduction/index.md) 
