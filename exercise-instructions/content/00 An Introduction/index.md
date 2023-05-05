@@ -8,7 +8,7 @@ In this self-paced training, you will learn how to:
 - Backup and rollback your Dynatrace environment configuration
 - Accelerate application onboarding with self-service monitoring
 
-## Repository structure
+## Exercises and Exercise Samples
 
 Training guides as well as exercise samples to download can be found in the below structure:
 
