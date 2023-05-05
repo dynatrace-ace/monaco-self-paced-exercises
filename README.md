@@ -20,7 +20,7 @@ It contains below exercises:
      - [01 Configure Monaco](exercise-instructions/content/01%20Configure%20Monaco/index.md)
      - [02 Download all configuration](exercise-instructions/content/02%20Download%20all%20configuration/index.md)
      - [03 Configuration Variables](exercise-instructions/content/03%20Configuration%20Variables/index.md)
-     - [04 Delete and Restore configuration](exercise-instructions/content/[04%20Delete%20and%20Restore%20configurations/index.md)
+     - [04 Delete and Restore configuration](exercise-instructions/content/[04%20Delete%20and%20Restore%20configuration/index.md)
      - [05 Linking configurations](exercise-instructions/content/05%20Linking%20configurations/index.md)
      - [06 Cleanup](exercise-instructions/content/06%20Cleanup/index.md)
      - [07 Learn More](exercise-instructions/content/07%20Learn%20More/index.md)
