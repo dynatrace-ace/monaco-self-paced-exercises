@@ -3,8 +3,8 @@
 This repository contains all configs, exercises, guides, etc. for the Monaco self-paced training.
 
 It contains below topics:
-- Installing the Dynatrace Monitoring-as-Code (Monaco) V2
-- Creating an Auto-tagging configuration via Dynatrace Monitoring-as-Code
+- Installing the Dynatrace Configuration-as-Code (Monaco) V2
+- Creating an Auto-tagging configuration via Dynatrace Configuration-as-Code
 - Performing backup and rollback of your Dynatrace environment configuration using download feature
 - Creating reusable and scalable configuration templates
 - Deleting the existing configurations
