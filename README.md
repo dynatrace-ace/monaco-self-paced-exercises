@@ -1,8 +1,8 @@
 # Monaco Version-2 Self-Paced Training
 
-This repository contains all configs, exercises, guides, etc. for the Monaco self-paced training.
+This repository contains all exercise instructions and exercise samples to be downloaded for the Monaco self-paced training.
 
-It contains below topics:
+It contains below exercises:
 - Installing the Dynatrace Configuration-as-Code (Monaco) V2
 - Creating an Auto-tagging configuration via Dynatrace Configuration-as-Code
 - Performing backup and rollback of your Dynatrace environment configuration using download feature
