@@ -12,7 +12,7 @@ In this self-paced training, you will learn how to:
 
 Training guides as well as exercise samples to download can be found in the below links:
 
-- [Exercises](exercise-instructions)
+- [Exercises](exercise-instructions/content)
      - [00 An Introduction](exercise-instructions/content/00%20An%20Introduction/index.md) 
      - [00 Install Monaco and Explore](exercise-instructions/content/00%20Install%20Monaco%20and%20Explore/index.md)    
      - [01 Configure Monaco](exercise-instructions/content/01%20Configure%20Monaco/index.md)
