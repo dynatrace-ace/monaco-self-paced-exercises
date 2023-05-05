@@ -1,6 +1,6 @@
 ## Install Dynatrace Configuration as Code CLI
 
-**Important Note:** Installation steps vary depending on your operating system. This guide provides installation instructions for Linux 64-bit systems. For MacOS and Windows,    please refer to the [installation guide](https://www.dynatrace.com/support/help/manage/configuration-as-code/installation).
+**Important Note:** Installation steps vary depending on your operating system. This guide provides installation instructions for **Linux 64-bit** systems. For MacOS and Windows, please refer to the [installation guide](https://www.dynatrace.com/support/help/manage/configuration-as-code/installation). All the exercises in this guide will include the terminal commands that are based on **Linux 64-bit** systems.
    
 1. Download the latest version of the Dynatrace Configuration as Code CLI tool
 
