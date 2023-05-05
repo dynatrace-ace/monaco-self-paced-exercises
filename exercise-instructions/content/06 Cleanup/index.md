@@ -94,8 +94,19 @@ Configurations which aren't needed anymore can also be deleted in an automated f
     ```bash
     export DT_API_TOKEN=PASTE-YOUR-API-TOKEN-HERE
     ```
+2. Verify that the environment variable `DT_TENANT_URL` still exists
 
-2. Run Monaco
+    ```bash
+    echo $DT_TENANT_URL
+    ```
+
+    If not, recreate it with your Dynatrace environment URL. Include `https://` but ensure there is no trailing `/` at the end of the URL.
+
+    ```bash
+    export DT_TENANT_URL=PASTE-YOUR-TENANT_URL_HERE
+    ```
+
+3. Run Monaco
 
     ```bash
     monaco delete
@@ -103,5 +114,5 @@ Configurations which aren't needed anymore can also be deleted in an automated f
 
     Monaco should execute and you shouldn't see any errors
 
-3. Confirm in your Dynatrace environment that the configurations created during the exercises do not exist anymore.
+4. Confirm in your Dynatrace environment that the configurations created during the exercises do not exist anymore.
 
