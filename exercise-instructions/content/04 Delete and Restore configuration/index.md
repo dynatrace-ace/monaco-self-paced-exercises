@@ -8,7 +8,7 @@ The `delete` command takes two arguments as YAML files. A manifest file which co
 If you don't specify file names, the command tries to find a `manifest.yaml` and a `delete.yaml` file in the current folder.
 
  ```bash
-monaco delete <manifest.yaml> <delete.yaml> [flags]
+monaco delete -m <manifest.yaml> --file <delete.yaml> [flags]
 ```
 
 The content of a delete.yaml is as follows:
@@ -108,7 +108,11 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
 2. Run Monaco
 
     ```bash
-    monaco delete manifest.yaml delete.yaml
+    monaco delete -m manifest.yaml --file delete.yaml
+    ```
+    You can also use the below command simply as the manifest file name is already "manifest.yaml" and the delete file name is "delete.yaml".
+    ```bash
+    monaco delete
     ```
 
     Monaco should execute and you shouldn't see any errors
