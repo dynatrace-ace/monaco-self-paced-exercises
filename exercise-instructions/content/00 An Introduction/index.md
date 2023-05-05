@@ -13,18 +13,18 @@ In this self-paced training, you will learn how to:
 Training guides as well as exercise samples to download can be found in the below links:
 
 - [Exercises](../../../exercise-instructions/content)
-     - [00 An Introduction](../../../exercise-instructions/content/00%20An%20Introduction/index.md) 
-     - [00 Install Monaco and Explore](../../../exercise-instructions/content/00%20Install%20Monaco%20and%20Explore/index.md)    
-     - [01 Configure Monaco](../../../exercise-instructions/content/01%20Configure%20Monaco/index.md)
-     - [02 Download all configuration](../../../exercise-instructions/content/02%20Download%20all%20configuration/index.md)
-     - [03 Configuration Variables](../../../exercise-instructions/content/03%20Configuration%20Variables/index.md)
-     - [04 Delete and Restore configuration](../../../exercise-instructions/content/04%20Delete%20and%20Restore%20configuration/index.md)
-     - [05 Linking configurations](../../../exercise-instructions/content/05%20Linking%20configurations/index.md)
-     - [06 Cleanup](../../../exercise-instructions/content/06%20Cleanup/index.md)
-     - [07 Learn More](../../../exercise-instructions/content/07%20Learn%20More/index.md)
+     - [Introduction](../../../exercise-instructions/content/00%20An%20Introduction/index.md) 
+     - [Install Monaco and Explore](../../../exercise-instructions/content/00%20Install%20Monaco%20and%20Explore/index.md)    
+     - [Configure Monaco](../../../exercise-instructions/content/01%20Configure%20Monaco/index.md)
+     - [Download all configuration](../../../exercise-instructions/content/02%20Download%20all%20configuration/index.md)
+     - [Configuration Variables](../../../exercise-instructions/content/03%20Configuration%20Variables/index.md)
+     - [Delete and Restore configuration](../../../exercise-instructions/content/04%20Delete%20and%20Restore%20configuration/index.md)
+     - [Linking configurations](../../../exercise-instructions/content/05%20Linking%20configurations/index.md)
+     - [Cleanup](../../../exercise-instructions/content/06%20Cleanup/index.md)
+     - [Learn More](../../../exercise-instructions/content/07%20Learn%20More/index.md)
 - [Exercise Samples to Download](../../../exercise-samples-to-download)
-    - [exercise-03-to-download](../../../exercise-samples-to-download/exercise-03-to-download)
-    - [exercise-05-to-download](../../../exercise-samples-to-download/exercise-05-to-download)
+    - [Exercise-03](../../../exercise-samples-to-download/exercise-03-to-download)
+    - [Exercise-05](../../../exercise-samples-to-download/exercise-05-to-download)
 
 ## Prerequisites
 - Dynatrace environment (a.k.a. Dynatrace tenant) - SaaS or Managed
