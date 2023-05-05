@@ -1,8 +1,18 @@
 ## Overview
 
-## Prerequisites
+Applying manual changes to monitoring configuration is outdated as it takes a hefty toll on manageability and slows down innovation.
 
-## Prepare your Dynatrace environment (a.k.a. Dynatrace tenant)
+In this self-paced exercises, you will learn how to:
+- Use the Dynatrace Monitoring-as-Code toolset to configure Dynatrace across different environments
+- Create reusable and scalable configuration templates
+- Backup and rollback your Dynatrace environment configuration
+- Accelerate application onboarding with self-service monitoring
+
+## Prerequisites
+- Dynatrace environment (a.k.a. Dynatrace tenant) - SaaS or Managed
+- Basic knowledge of configuring Dynatrace
+
+## Prepare your Dynatrace environment
 
 1. Access to your Dynatrace environment, in the Dynatrace menu, select `Access tokens`
 2. Select `Generate new token`. Enter a name for your token : 
@@ -19,7 +29,7 @@
 
 **Important Note:** Installation steps vary depending on your operating system. This guide provides installation instructions for **Linux 64-bit** systems. For MacOS and Windows, please refer to the [installation guide](https://www.dynatrace.com/support/help/manage/configuration-as-code/installation). All the exercises in this guide will include the terminal commands that are based on **Linux 64-bit** systems.
    
-1. Open up your Linux terminal and download the latest version of the Dynatrace Configuration as Code CLI tool.
+1. Open up your terminal and download the latest version of the Dynatrace Configuration as Code CLI tool.
 
     ```bash
     curl -L https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/latest/download/monaco-linux-amd64 -o monaco-linux-amd64
