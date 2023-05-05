@@ -17,9 +17,8 @@ It contains below exercises:
 ```
 exercise-instructions/
   content/
-    00 Install Monaco and Explore/
-      index.md
-    01 Configure Monaco/
+    [00 Install Monaco and Explore](exercise-instructions/content/00 Install Monaco and Explore/index.md)
+    [01 Configure Monaco](exercise-instructions/content/01 Configure Monaco/index.md)
       index.md
     ...
   assets/images
