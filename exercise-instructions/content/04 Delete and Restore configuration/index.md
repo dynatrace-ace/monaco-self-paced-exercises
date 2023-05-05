@@ -105,7 +105,19 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
     export DT_API_TOKEN=PASTE-YOUR-API-TOKEN-HERE
     ```
 
-2. Run Monaco
+2. Verify that the environment variable `DT_TENANT_URL` still exists
+
+    ```bash
+    echo $DT_TENANT_URL
+    ```
+
+    If not, recreate it with your Dynatrace environment URL. Include `https://` but ensure there is no trailing `/` at the end of the URL.
+
+    ```bash
+    export DT_TENANT_URL=PASTE_YOUR_TENANT_URL_HERE
+    ```
+
+3. Run Monaco
 
     ```bash
     monaco delete -m manifest.yaml --file delete.yaml
@@ -122,7 +134,7 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
     2022/12/21 01:28:41 INFO  Deleting configs of type auto-tag...
     ```
 
-3. Confirm in your Dynatrace environment that the `Owner` tag doesn't exist anymore (refresh the page if it's already open)
+4. Confirm in your Dynatrace environment that the `Owner` tag doesn't exist anymore (refresh the page if it's already open)
 
 ### Step 4 - Restore configuration from backup
 

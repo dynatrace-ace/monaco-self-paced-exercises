@@ -103,7 +103,7 @@ Configurations which aren't needed anymore can also be deleted in an automated f
     If not, recreate it with your Dynatrace environment URL. Include `https://` but ensure there is no trailing `/` at the end of the URL.
 
     ```bash
-    export DT_TENANT_URL=PASTE-YOUR-TENANT_URL_HERE
+    export DT_TENANT_URL=PASTE_YOUR_TENANT_URL_HERE
     ```
 
 3. Run Monaco

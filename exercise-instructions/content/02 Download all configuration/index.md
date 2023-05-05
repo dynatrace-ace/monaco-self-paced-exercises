@@ -73,11 +73,9 @@ First, let's take a look at the different options that Monaco provides to [downl
 
     This command will get you started and create a manifest. After a direct download, you have everything you need to deploy your downloaded configuration.
 
-    Get your Dynatrace URL from the DTU event or the dashboard. It should look similar to
-
     First, we need to retrieve your Dynatrace environment URL. Include `https://` but ensure there is no trailing `/` at the end of the URL.
 
-    > **Tip:** You can find your Dynatrace environment URL on your dashboard page.
+    > **Tip:** You can find your Dynatrace environment URL on your web browser.
 
     Next, verify that the environment variable `DT_API_TOKEN` still exists
 
