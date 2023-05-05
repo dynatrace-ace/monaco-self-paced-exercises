@@ -25,9 +25,8 @@ Training guides as well as exercise samples to download can be found in the belo
      - [06 Cleanup](exercise-instructions/content/06%20Cleanup/index.md)
      - [07 Learn More](exercise-instructions/content/07%20Learn%20More/index.md)
    - [assets/images](exercise-instructions/assets/images)
-     - 01_auto_tags_Api.png
-     - 01_config_api_auth.png
-     - 04_owner_tag_ui.png
+     - [01_auto_tags_Api.png](exercise-instructions/assets/images/01_auto_tags_Api.png)
+     - [04_owner_tag_ui.png](exercise-instructions/assets/images/04_owner_tag_ui.png)
      - ...
 - [exercise-samples-to-download](exercise-samples-to-download)
     - [exercise-03-to-download](exercise-samples-to-download/exercise-03-to-download)
