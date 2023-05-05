@@ -12,10 +12,10 @@ It contains below exercises:
 
 ## Repository structure
 
-[Guides](exercise-instructions/content) as well as [exercise samples to download](exercise-samples-to-download) can be found in the below structure:
+Training guides as well as exercise samples to download can be found in the below structure:
 
-- exercise-instructions
-   - content
+- [exercise-instructions](exercise-instructions)
+   - [content](exercise-instructions/content)
      - [00 Install Monaco and Explore](exercise-instructions/content/00%20Install%20Monaco%20and%20Explore/index.md)    
      - [01 Configure Monaco](exercise-instructions/content/01%20Configure%20Monaco/index.md)
      - [02 Download all configuration](exercise-instructions/content/02%20Download%20all%20configuration/index.md)
@@ -24,15 +24,14 @@ It contains below exercises:
      - [05 Linking configurations](exercise-instructions/content/05%20Linking%20configurations/index.md)
      - [06 Cleanup](exercise-instructions/content/06%20Cleanup/index.md)
      - [07 Learn More](exercise-instructions/content/07%20Learn%20More/index.md)
-
-   - assets/images
+   - [assets/images](exercise-instructions/assets/images)
      - 01_auto_tags_Api.png
+     - 01_config_api_auth.png
+     - 04_owner_tag_ui.png
      - ...
-
-- exercise-samples-to-download
+- [exercise-samples-to-download](exercise-samples-to-download)
     - [exercise-03-to-download](exercise-samples-to-download/exercise-03-to-download)
     - [exercise-05-to-download](exercise-samples-to-download/exercise-05-to-download)
-
 
 ## monaco v2
 
