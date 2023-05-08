@@ -156,13 +156,61 @@ Now that we have defined a variable in the JSON template, we can assign values t
 
 ### Step 4 - Deploy the configurations
 
-1. Go back to the `exercise-03` directory and run monaco deploy command first with dry-run option
+1. Go back to the parent directory where the `manifest.yaml` resides. Open this file and explore the contents.
+
+    ```yaml
+        ---
+        manifestVersion: "1.0"
+
+        projects:
+          - name: apps
+            path: apps
+            type: grouping
+          - name: infrastructure
+            path: infrastructure
+
+        environmentGroups:
+          - name: default
+            environments:
+              - name: development-environment
+                url:
+                  type: environment
+                  value: DT_TENANT_URL
+                auth:
+                  token:
+                    name: DT_API_TOKEN
+    ```
+
+2. Verify that the environment variable `DT_API_TOKEN` still exists
+
+    ```bash
+    echo $DT_API_TOKEN
+    ```
+
+    If not, recreate it from the token you created in the previous exercises.
+
+    ```bash
+    export DT_API_TOKEN=PASTE-YOUR-API-TOKEN-HERE
+    ```
+3. Verify that the environment variable `DT_TENANT_URL` still exists
+
+    ```bash
+    echo $DT_TENANT_URL
+    ```
+
+    If not, recreate it with your Dynatrace environment URL. Include `https://` but ensure there is no trailing `/` at the end of the URL.
+
+    ```bash
+    export DT_TENANT_URL=PASTE_YOUR_TENANT_URL_HERE
+    ```
+
+4. Run monaco deploy command first with dry-run option
     
     ```bash  
     monaco deploy manifest.yaml --dry-run   
     ```
     
-2. If there is no validation error, you can now run monaco without a dry-run option to apply the configurations on your Dynatrace environment
+5. If there is no validation error, you can now run monaco without a dry-run option to apply the configurations on your Dynatrace environment
 
     ```bash  
     monaco deploy manifest.yaml 
