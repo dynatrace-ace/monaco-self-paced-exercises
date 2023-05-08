@@ -40,6 +40,6 @@ Training guides as well as exercise samples to download can be found in the belo
     ```
 3. Select the following scopes: 
    ```text
-   DataExport, ReadConfig , WriteConfig , DataPrivacy , CaptureRequestData , slo.read , slo.write , , ExternalSyntheticIntegration , settings.read , settings.write
+   DataExport, ReadConfig , WriteConfig , DataPrivacy , CaptureRequestData , slo.read , slo.write , ExternalSyntheticIntegration , settings.read , settings.write
    ```
 4. Select `Generate token` and copy the generated token to a notepad for future use. 
