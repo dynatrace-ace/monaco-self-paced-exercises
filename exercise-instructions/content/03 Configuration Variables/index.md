@@ -30,13 +30,11 @@ mv <DOWNLOADED-EXERCISE-FOLDER-PATH> .
     │         ├── application.json
     │         ├── csm.json
     │         ├── dashboard.json
-    │         ├── health-check-monitor.json
     │         ├── k8s-auto-tag.json
     │         └── management-zone.json
     ├── infrastructure
     │    ├── _config.yaml
     │    ├── auto-tag.json
-    │    ├── private-synthetic.json
     │    └── request-attribute.json
     ├── manifest.yaml
     ```
@@ -46,7 +44,6 @@ The folder includes two Monaco projects:
 A project "**infrastructure**" that contains generic configuration related to the underlying infrastructure:
 - Auto tagging rules
 - Request attributes
-- Synthetic locations
 
 A project "**apps**" that contains configuration specific to apps app-one and app-two:
 - Application definition
@@ -55,7 +52,6 @@ A project "**apps**" that contains configuration specific to apps app-one and ap
 - Calculated services metrics
 - Dashboards
 - Management zones
-- Synthetic monitors
 
 #### Application configuration
 
