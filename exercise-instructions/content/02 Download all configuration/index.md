@@ -55,7 +55,7 @@ First, let's take a look at the different options that Monaco provides to [downl
 
     ```bash
     mkdir exercise-02   
-    cd exercise_02
+    cd exercise-02
     ```
 
 2. You can use command flags to download an environment directly without using a manifest.
