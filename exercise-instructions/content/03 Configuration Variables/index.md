@@ -200,13 +200,38 @@ Now that we have defined a variable in the JSON template, we can assign values t
     export DT_TENANT_URL=PASTE_YOUR_TENANT_URL_HERE
     ```
 
-4. Run monaco deploy command first with dry-run option
+4. Take a closer look at the `apps/app-one/_config.yaml` and evaluate the following piece of the configuration parameters under  `# app-detection-rule`.
+   `pattern` parameter is a type `compound` and it contains an `ingressDomain` parameter that has an environment variable `INGRESS_DOMAIN`.
+
+    ```yaml
+      parameters:
+        pattern:
+          type: compound
+          format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
+          references:
+            - protocol
+            - applicationSubdomain
+            - ingressDomain
+        protocol: http
+        applicationSubdomain: simplenodeservice-app-one
+        ingressDomain:
+          name: INGRESS_DOMAIN
+          type: environment
+    ```
+
+    You need create `INGRESS_DOMAIN` environment variable before executing the monaco deploy command. Otherwise, it will give an error message `environment variable INGRESS_DOMAIN not set`.
+
+    ```bash
+    export INGRESS_DOMAIN=self-paced.info
+    ```
+
+5. Run monaco deploy command first with dry-run option
     
     ```bash  
     monaco deploy manifest.yaml --dry-run   
     ```
     
-5. If there is no validation error, you can now run monaco without a dry-run option to apply the configurations on your Dynatrace environment
+6. If there is no validation error, you can now run monaco without a dry-run option to apply the configurations on your Dynatrace environment
 
     ```bash  
     monaco deploy manifest.yaml 
