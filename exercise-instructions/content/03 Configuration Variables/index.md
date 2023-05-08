@@ -237,14 +237,17 @@ Now that we have defined a variable in the JSON template, we can assign values t
     monaco deploy manifest.yaml 
     ```
     
-    It will now update the two auto-tagging configurations and will change the `namespace` from a fixed value to a parametrized value using Monaco.
 
 ### Step 5 - View results in Dynatrace
 
 1. As a last step, go to your Dynatrace environment and verify that Monaco updated the automatic tagging settings.
+   It will create multiple auto-tagging configurations as follows when you navigate to `Settings` > `Tags` > `Automatically applied tags`:
+    ![Automaticaly applied tags](../../assets/images/03_autotag_list.png)
+    
+    Additionally, it will update the two auto-tagging configurations and will change the `namespace` from a fixed value to a parametrized value using Monaco.
 
-    ![RUM coverage app-one](../../assets/images/03_rum_app1.png)
+    ![Auto tag for app-one](../../assets/images/03_autotag-app-one.png)
 
-    ![RUM coverage app-two](../../assets/images/03_rum_app2.png)
+    ![Auto tag for app-two](../../assets/images/03_autotag-app-two.png)
 
 ### This concludes Exercise 3!
