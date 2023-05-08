@@ -246,8 +246,8 @@ Now that we have defined a variable in the JSON template, we can assign values t
     
     Additionally, it will update the two auto-tagging configurations and will change the `namespace` from a fixed value to a parametrized value using Monaco.
 
-    ![Auto tag for app-one](../../assets/images/03_autotag-app-one.png)
+    ![Auto tag for app-one](../../assets/images/03_autotag_app_one.png)
 
-    ![Auto tag for app-two](../../assets/images/03_autotag-app-two.png)
+    ![Auto tag for app-two](../../assets/images/03_autotag_app_two.png)
 
 ### This concludes Exercise 3!
