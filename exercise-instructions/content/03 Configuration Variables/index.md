@@ -159,26 +159,26 @@ Now that we have defined a variable in the JSON template, we can assign values t
 1. Go back to the parent directory where the `manifest.yaml` resides. Open this file and explore the contents.
 
     ```yaml
-        ---
-        manifestVersion: "1.0"
+    ---
+    manifestVersion: "1.0"
 
-        projects:
-          - name: apps
-            path: apps
-            type: grouping
-          - name: infrastructure
-            path: infrastructure
+    projects:
+      - name: apps
+        path: apps
+        type: grouping
+      - name: infrastructure
+        path: infrastructure
 
-        environmentGroups:
-          - name: default
-            environments:
-              - name: development-environment
-                url:
-                  type: environment
-                  value: DT_TENANT_URL
-                auth:
-                  token:
-                    name: DT_API_TOKEN
+    environmentGroups:
+      - name: default
+        environments:
+          - name: development-environment
+            url:
+              type: environment
+              value: DT_TENANT_URL
+            auth:
+              token:
+                name: DT_API_TOKEN
     ```
 
 2. Verify that the environment variable `DT_API_TOKEN` still exists
