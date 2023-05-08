@@ -242,9 +242,10 @@ Now that we have defined a variable in the JSON template, we can assign values t
 
 1. As a last step, go to your Dynatrace environment and verify that Monaco updated the automatic tagging settings.
    It will create multiple auto-tagging configurations as follows when you navigate to `Settings` > `Tags` > `Automatically applied tags`:
+   
     ![Automaticaly applied tags](../../assets/images/03_autotag_list.png)
     
-    Additionally, it will update the two auto-tagging configurations and will change the `namespace` from a fixed value to a parametrized value using Monaco.
+    Additionally, it will update the two auto-tagging configurations (`app-one-tag`, `app-two-tag`) and will change the `namespace` from a fixed value to a parametrized value using Monaco.
 
     ![Auto tag for app-one](../../assets/images/03_autotag_app_one.png)
 
