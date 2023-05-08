@@ -55,9 +55,7 @@ First, we'll create an automatic *key:value* tag that identifies the owners of p
 
 13. Click on `Save changes`
 
-You can now filter **process groups** and **services** using the `Owner` tag!
-
-![Owner tag filter](../../assets/images/01_owner_tag_filter.png)
+You can now filter **process groups** and **services** using the `Owner` tag on your Dynatrace environment!
 
 ### Step 2 - Define a manifest for Monaco
 
@@ -290,7 +288,7 @@ We'll now execute Monaco to re-deploy the automatic tagging rule.
 
     ***We're now ready to see Monaco in action!***
 
-5. Execute Monaco with the dry run flag `--dry-run` which will validate our configuration without actually applying it to our Dynatrace environment.
+5. Execute Monaco with the dry run flag `--dry-run` which will validate our configuration without actually applying it to our Dynatrace environment. 
 
     [Optional] The `-p` / `--project` flag can be used to target a specific project. By default, Monaco will deploy all projects.
 
@@ -300,6 +298,7 @@ We'll now execute Monaco to re-deploy the automatic tagging rule.
     
     For the details, you can visit [monaco deploy command reference](https://www.dynatrace.com/support/help/manage/configuration-as-code/reference/commands#deploy)
     
+    Run the below command on the same folder with `manifest.yaml` which is `exercise-01` directory.
       ```bash
       monaco deploy --dry-run manifest.yaml
       ```
