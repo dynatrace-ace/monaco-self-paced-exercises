@@ -61,20 +61,20 @@ A project "**apps**" that contains configuration specific to apps app-one and ap
 
 2. Navigate to the application definitions stored in `apps/app-one/_config.yaml`
 
-3. Take a closer look at the `application web` section
+3. Take a closer look at the `# auto-tag` section
 
     ```yaml
-    # application-web 
-    - id: application-app-one
-      type:
-        api: application-web
-      config:
-        name: app-one
-        template: ../shared/application.json
-        skip: false
+      # auto-tag
+      - id: tagging-app-one-type-api
+        type:
+          api: auto-tag    
+        config:
+          name: app-one-tag
+          template: ../shared/k8s-auto-tag.json
+          skip: false
     ```
 
-    We can see that this section makes use of a template stored in `../shared/application.json`. This template is also referenced from `apps/app-two/_config.yaml`
+    We can see that this section makes use of a template stored in `../shared/k8s-auto-tag.json`. This template is also referenced from `apps/app-two/_config.yaml`
 
 ### Step 2 - Introduce variables
 
@@ -86,25 +86,46 @@ In order to use variables in a Monaco configuration, we must replace hardcoded v
 
 > **Note:** Although this format is based on the Golang template library and notations, only selecting a specific field is fully supported, i.e. dot followed by name of field.
 
-In our example, we want to turn RUM coverage percentage, represented in the configuration template by the field `costControlUserSessionPercentage`, in a variable called `rumPercentage`.
+In our example, we want to turn Kubernetes namespace, represented in the configuration template by the field `comparisonInfo`, in a variable called `value`.
 
-1. To do so, open the configuration template we identified earlier `apps/shared/application.json`
+1. To do so, open the configuration template we identified earlier `apps/shared/k8s-auto-tag.json`
 
-2. Find the field `costControlUserSessionPercentage` and notice that the value is hardcoded as `10`:
-
-    ```json
-    "costControlUserSessionPercentage": 10,
-    ```
-
-3. Turn the value of that field `10` into a variable:
+2. Find the field `comparisonInfo` and notice that the `value` is hardcoded as `default`:
 
     ```json
-    "costControlUserSessionPercentage": "{{ .rumPercentage }}",
+      "rules": [
+        {
+          "type": "PROCESS_GROUP",
+          "enabled": true,
+          "valueFormat": null,
+          "propagationTypes": ["PROCESS_GROUP_TO_SERVICE"],
+          "conditions": [
+            {
+              "key": {
+                "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+                "dynamicKey": "KUBERNETES_NAMESPACE",
+                "type": "PROCESS_PREDEFINED_METADATA_KEY"
+              },
+              "comparisonInfo": {
+                "type": "STRING",
+                "operator": "EQUALS",
+                "value": "default",
+                "negate": false,
+                "caseSensitive": true
+              }
+            }
+          ]
+        }
+      ]
     ```
 
-    > **Note:** Even though the variable placeholder doesn't represent a string value, it must still be surrounded with double quotes `"`
+3. Turn the value of that field `default` into a variable:
+
+    ```json
+    "value": "{{ .namespace }}",
+    ```
     >
-    >The dot `.` in front of `rumPercentage` is also required as it's part of the format.
+    >The dot `.` in front of `namespace` is also required as it's part of the format.
 
 4. Save the changes
 
@@ -115,23 +136,23 @@ Now that we have defined a variable in the JSON template, we can assign values t
 1. Open the `apps/app-one/_config.yaml` file, add the variable, and assign a value to it like shown in the snippet below:
 
     ```yaml
-    # application-web 
-    - id: application-app-one
-      type:
-        api: application-web
-      config:
-        name: app-one
-        template: ../shared/application.json
-        skip: false
-        parameters:
-          rumPercentage: 100
+      # auto-tag
+      - id: tagging-app-one-type-api
+        type:
+          api: auto-tag    
+        config:
+          name: app-one-tag
+          template: ../shared/k8s-auto-tag.json
+          parameters:
+            namespace: app-one
+          skip: false
     ```
 
-    > **Note:** Parameters can be of different types with type `value` being the default. For `value` parameters, a short form syntax (e.g. `rumPercentage: 100`) can be used. Details on other supported types and examples can be found in the [docs](https://www.dynatrace.com/support/help/manage/configuration-as-code/configuration/yaml-configuration#parameters).
+    > **Note:** Parameters can be of different types with type `value` being the default. For `value` parameters, a short form syntax (e.g. `namespace: app-one`) can be used. Details on other supported types and examples can be found in the [docs](https://www.dynatrace.com/support/help/manage/configuration-as-code/configuration/yaml-configuration#parameters).
 
 2. Save the changes
 
-3. Repeat these steps but with `rumPercentage: 50` in `apps/app-two/_config.yaml`
+3. Repeat these steps but with `namespace: app-two` in `apps/app-two/_config.yaml`
 
 ### Step 4 - Deploy the configurations
 
@@ -147,11 +168,11 @@ Now that we have defined a variable in the JSON template, we can assign values t
     monaco deploy manifest.yaml 
     ```
     
-    It will now update the two application configurations and will change the `costControlUserSessionPercentage` from a fixed value to a parametrized value using Monaco.
+    It will now update the two auto-tagging configurations and will change the `namespace` from a fixed value to a parametrized value using Monaco.
 
 ### Step 5 - View results in Dynatrace
 
-1. As a last step, go to your Dynatrace environment and verify that Monaco updated the application settings.
+1. As a last step, go to your Dynatrace environment and verify that Monaco updated the automatic tagging settings.
 
     ![RUM coverage app-one](../../assets/images/03_rum_app1.png)
 
