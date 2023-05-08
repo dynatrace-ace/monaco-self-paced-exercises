@@ -39,7 +39,7 @@ Configurations which aren't needed anymore can also be deleted in an automated f
  
 2. Save the changes
 
-3. Create a new file `delete.yaml` on the same directory to make it look like the snippet below.
+3. Copy the following content into the `delete.yaml` file.
     
     ```yaml
     delete:
