@@ -6,8 +6,6 @@ configs:
     config:
       name: app-two-tag
       template: ../shared/k8s-auto-tag.json
-      parameters:
-        namespace: app-two
       skip: false
   
   # application-web 

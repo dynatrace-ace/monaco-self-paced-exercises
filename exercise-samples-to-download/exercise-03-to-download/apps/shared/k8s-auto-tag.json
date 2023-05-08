@@ -16,7 +16,7 @@
           "comparisonInfo": {
             "type": "STRING",
             "operator": "EQUALS",
-            "value": "{{ .namespace }}",
+            "value": "default",
             "negate": false,
             "caseSensitive": true
           }

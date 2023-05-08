@@ -6,8 +6,6 @@ configs:
     config:
       name: app-one-tag
       template: ../shared/k8s-auto-tag.json
-      parameters:
-        namespace: app-one
       skip: false
 
   - id: tagging-app-one-type-settings
