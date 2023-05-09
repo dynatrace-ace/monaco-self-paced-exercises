@@ -76,7 +76,6 @@ Configurations which aren't needed anymore can also be deleted in an automated f
       - "alerting-profile/profile-k8s-nodes"
       
       # From Exercise 5 - apps.app-one project
-      - "management-zone/app-one"
       - "alerting-profile/profile-app-one"
       - "notification/email-team-app-one"
       - "notification/email-team-app-one-k8s-nodes"
