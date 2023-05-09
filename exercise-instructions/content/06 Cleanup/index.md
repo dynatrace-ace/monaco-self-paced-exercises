@@ -45,36 +45,39 @@ Configurations which aren't needed anymore can also be deleted in an automated f
     delete:
       # From Exercise 1
       - "auto-tag/Owner"
+      
       # From Exercise 3 - infrastructure project
-      - "auto-tag/environment-tag"
-      - "auto-tag/app-tag"
-      - "synthetic-location/synthetic-location-ace-box"
-      - "request-attributes/ltn-request-attribute"
-      - "request-attributes/tsn-request-attribute"
-      - "request-attributes/lsn-request-attribute"
+      - "auto-tag/environment"
+      - "auto-tag/app"
+      - "request-attributes/LTN"
+      - "request-attributes/TSN"
+      - "request-attributes/LSN"
+      
       # From Exercise 3 - apps.shared project
       - "calculated-metrics-service/simplenode.staging"
+      
       # From Exercise 3 - apps.app-one project
-      - "auto-tag/tagging-app-one-type-api"
+      - "auto-tag/app-one-tag"
       - "builtin:tags.auto-tagging/tagging-app-one-type-settings"
-      - "application-web/application-app-one"
-      - "app-detection-rule/application-detect-app-one"
-      - "management-zone/management-zone-app-one"
-      - "dashboard/dashboard-app-one"
-      - "synthetic-monitor/health-app-one"
+      - "application-web/app-one"
+      - "app-detection-rule/app-one-detect"
+      - "management-zone/app-one"
+      - "dashboard/Dashboard app-one"
+      
       # From Exercise 3 - apps.app-two project
-      - "auto-tag/tagging-app-two"
-      - "application-web/application-app-two"
-      - "app-detection-rule/application-detect-app-two"
-      - "management-zone/management-zone-app-two"
-      - "dashboard/dashboard-app-two"
-      - "synthetic-monitor/health-app-two"
+      - "auto-tag/app-two-tag"
+      - "application-web/app-two"
+      - "app-detection-rule/app-two-detect"
+      - "management-zone/app-two"
+      - "dashboard/Dashboard app-two"
+      
       # From Exercise 5 - infrastructure project
-      - "management-zone/management-zone-k8s-nodes"
-      - "alerting-profile/alerting-profile-k8s-nodes"
+      - "management-zone/k8s-nodes"
+      - "alerting-profile/profile-k8s-nodes"
+      
       # From Exercise 5 - apps.app-one project
-      - "management-zone/management-zone-app-one"
-      - "alerting-profile/alerting-profile-app-one"
+      - "management-zone/app-one"
+      - "alerting-profile/profile-app-one"
       - "notification/email-team-app-one"
       - "notification/email-team-app-one-k8s-nodes"
     ```
