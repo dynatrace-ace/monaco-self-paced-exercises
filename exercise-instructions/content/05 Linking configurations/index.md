@@ -4,7 +4,8 @@ In this exercise, we'll see how we can link multiple configurations without havi
 
 ### Step 1 - Take a look at the projects
 
-Download an example Monaco project (**exercise-05-to-download**) from a shared repository and copy it into a newly created folder.
+Please download the example Monaco project "**Monaco self-paced exercise 5 download**" under the "Configuration as Code" section in the course and unzip the downloaded file. Then copy it into a newly created folder.
+
 ```bash
 mkdir exercise-05
 cd exercise-05
