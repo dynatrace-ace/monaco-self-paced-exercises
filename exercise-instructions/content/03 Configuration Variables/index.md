@@ -4,7 +4,8 @@ Envision a scenario where you have similar application configurations, either in
 
 The goal of this exercise is to introduce variables in our JSON templates to manage this requirement.
 
-First of all, download an example Monaco project [**exercise-03-download**](https://university.dynatrace.com/secure-assets/40745/exercise03todownload.zip) and copy it into a newly created folder.
+Please download the example Monaco project "**Monaco self-paced exercise 3 download**" under the "Configuration as Code" section in the course and unzip the downloaded file.
+
 ```bash
 mkdir exercise-03
 cd exercise-03
