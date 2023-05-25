@@ -51,9 +51,7 @@ First, we'll create an automatic *key:value* tag that identifies the owners of p
 
     ![Owner tag condition configuration](../../assets/images/01_owner_tag_config-condition.png)
 
-12. Click on `Preview`. You should already see a list of entities that are being monitored as part of the lab!
-
-13. Click on `Save changes`
+12. Click on `Save changes`
 
 You can now filter **process groups** and **services** using the `Owner` tag on your Dynatrace environment!
 
