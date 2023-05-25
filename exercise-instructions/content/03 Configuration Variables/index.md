@@ -4,7 +4,7 @@ Envision a scenario where you have similar application configurations, either in
 
 The goal of this exercise is to introduce variables in our JSON templates to manage this requirement.
 
-Please [download the exercise-3 sample](https://github.com/dynatrace-ace/monaco-self-paced-exercises/blob/main/exercise-samples-to-download/exercise-03-to-download.zip), unzip and copy it into a newly created folder.
+Please [download the exercise-3 sample](https://github.com/dynatrace-ace/monaco-self-paced-exercises/blob/main/exercise-samples-to-download/exercise-03-to-download.zip) by clicking on "Download raw file" button, unzip the file and copy the extracted files into a newly created folder.
 
 ```bash
 mkdir exercise-03
