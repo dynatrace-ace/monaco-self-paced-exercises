@@ -4,7 +4,7 @@ In this exercise, we'll see how we can link multiple configurations without havi
 
 ### Step 1 - Take a look at the projects
 
-Please download the example Monaco project "**Monaco self-paced exercise 5 download**" under the "Configuration as Code" section in the course and unzip the downloaded file. Then copy it into a newly created folder.
+Please [download the exercise-5 sample](https://github.com/dynatrace-ace/monaco-self-paced-exercises/blob/main/exercise-samples-to-download/exercise-05-to-download.zip), unzip and copy it into a newly created folder.
 
 ```bash
 mkdir exercise-05
