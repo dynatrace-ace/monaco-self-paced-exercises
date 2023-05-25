@@ -6,6 +6,8 @@ The goal of this exercise is to introduce variables in our JSON templates to man
 
 Please [download the exercise-3 sample](https://github.com/dynatrace-ace/monaco-self-paced-exercises/blob/main/exercise-samples-to-download/exercise-03-to-download.zip), unzip and copy it into a newly created folder.
 
+<a id="raw-url" href="[https://raw.githubusercontent.com/github-username/project/master/filename](https://github.com/dynatrace-ace/monaco-self-paced-exercises/blob/main/exercise-samples-to-download/exercise-03-to-download.zip)">Download FILE</a>
+
 ```bash
 mkdir exercise-03
 cd exercise-03
