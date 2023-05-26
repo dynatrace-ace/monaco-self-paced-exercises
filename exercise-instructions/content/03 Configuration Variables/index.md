@@ -60,18 +60,18 @@ A project "**apps**" that contains configuration specific to apps app-one and ap
 
 3. Take a closer look at the `# auto-tag` section
 
-    ```yaml
-      # auto-tag
-      - id: tagging-app-one-type-api
-        type:
-          api: auto-tag    
-        config:
-          name: app-one-tag
-          template: ../shared/k8s-auto-tag.json
-          skip: false
-    ```
+  ```yaml
+  # auto-tag
+  - id: tagging-app-one-type-api
+    type:
+      api: auto-tag    
+    config:
+      name: app-one-tag
+      template: ../shared/k8s-auto-tag.json
+      skip: false
+  ```
 
-    We can see that this section makes use of a template stored in `../shared/k8s-auto-tag.json`. This template is also referenced from `apps/app-two/_config.yaml`
+  We can see that this section makes use of a template stored in `../shared/k8s-auto-tag.json`. This template is also referenced from `apps/app-two/_config.yaml`
 
 ### Step 2 - Introduce variables
 
@@ -89,32 +89,32 @@ In our example, we want to turn Kubernetes namespace, represented in the configu
 
 2. Find the field `comparisonInfo` and notice that the `value` is hardcoded as `default`:
 
-    ```json
-      "rules": [
+  ```json
+  "rules": [
+    {
+      "type": "PROCESS_GROUP",
+      "enabled": true,
+      "valueFormat": null,
+      "propagationTypes": ["PROCESS_GROUP_TO_SERVICE"],
+      "conditions": [
         {
-          "type": "PROCESS_GROUP",
-          "enabled": true,
-          "valueFormat": null,
-          "propagationTypes": ["PROCESS_GROUP_TO_SERVICE"],
-          "conditions": [
-            {
-              "key": {
-                "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-                "dynamicKey": "KUBERNETES_NAMESPACE",
-                "type": "PROCESS_PREDEFINED_METADATA_KEY"
-              },
-              "comparisonInfo": {
-                "type": "STRING",
-                "operator": "EQUALS",
-                "value": "default",
-                "negate": false,
-                "caseSensitive": true
-              }
-            }
-          ]
+          "key": {
+            "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+            "dynamicKey": "KUBERNETES_NAMESPACE",
+            "type": "PROCESS_PREDEFINED_METADATA_KEY"
+          },
+          "comparisonInfo": {
+            "type": "STRING",
+            "operator": "EQUALS",
+            "value": "default",
+            "negate": false,
+            "caseSensitive": true
+          }
         }
       ]
-    ```
+    }
+  ]
+  ```
 
 3. Turn the value of that field `default` into a variable:
 
@@ -132,20 +132,20 @@ Now that we have defined a variable in the JSON template, we can assign values t
 
 1. Open the `apps/app-one/_config.yaml` file, add the variable, and assign a value to it like shown in the snippet below:
 
-    ```yaml
-      # auto-tag
-      - id: tagging-app-one-type-api
-        type:
-          api: auto-tag    
-        config:
-          name: app-one-tag
-          template: ../shared/k8s-auto-tag.json
-          parameters:
-            namespace: app-one
-          skip: false
-    ```
+  ```yaml
+  # auto-tag
+  - id: tagging-app-one-type-api
+    type:
+      api: auto-tag    
+    config:
+      name: app-one-tag
+      template: ../shared/k8s-auto-tag.json
+      parameters:
+        namespace: app-one
+      skip: false
+  ```
 
-    > **Note:** Parameters can be of different types with type `value` being the default. For `value` parameters, a short form syntax (e.g. `namespace: app-one`) can be used. Details on other supported types and examples can be found in the [docs](https://www.dynatrace.com/support/help/manage/configuration-as-code/configuration/yaml-configuration#parameters).
+  > **Note:** Parameters can be of different types with type `value` being the default. For `value` parameters, a short form syntax (e.g. `namespace: app-one`) can be used. Details on other supported types and examples can be found in the [docs](https://www.dynatrace.com/support/help/manage/configuration-as-code/configuration/yaml-configuration#parameters).
 
 2. Save the changes
 
@@ -201,8 +201,7 @@ Now that we have defined a variable in the JSON template, we can assign values t
     export DT_TENANT_URL=PASTE_YOUR_TENANT_URL_HERE
     ```
 
-4. Take a closer look at the `apps/app-one/_config.yaml` and evaluate the following piece of the configuration parameters under  `# app-detection-rule`.
-   `pattern` parameter is a type `compound` and it contains an `ingressDomain` parameter that has an environment variable `INGRESS_DOMAIN`.
+4. Take a closer look at the `apps/app-one/_config.yaml` and evaluate the following piece of the configuration parameters under  `# app-detection-rule`. `pattern` parameter is a type `compound` and it contains an `ingressDomain` parameter that has an environment variable `INGRESS_DOMAIN` .
 
   ```yaml
   parameters:
@@ -218,25 +217,25 @@ Now that we have defined a variable in the JSON template, we can assign values t
     ingressDomain:
       name: INGRESS_DOMAIN
       type: environment
-    ```
+  ```
 
-    You need create `INGRESS_DOMAIN` environment variable before executing the monaco deploy command. Otherwise, it will give an error message `environment variable INGRESS_DOMAIN not set`.
+  Create `INGRESS_DOMAIN` environment variable before executing the monaco deploy command. Otherwise, it will give an error message `environment variable INGRESS_DOMAIN not set`.
 
-    ```bash
-    export INGRESS_DOMAIN=self-paced.info
-    ```
+  ```bash
+  export INGRESS_DOMAIN=self-paced.info
+  ```
 
 5. Run monaco deploy command first with dry-run option
     
-    ```bash
-    monaco deploy manifest.yaml --dry-run   
-    ```
+  ```bash
+  monaco deploy manifest.yaml --dry-run   
+  ```
     
 6. If there is no validation error, you can now run monaco without a dry-run option to apply the configurations on your Dynatrace environment
 
-    ```bash
-    monaco deploy manifest.yaml 
-    ```
+  ```bash
+  monaco deploy manifest.yaml 
+  ```
     
 ### Step 5 - View results in Dynatrace
 
