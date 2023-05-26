@@ -48,33 +48,33 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
 
 1. Create a new directory and a **manifest.yaml** file for this exercise.
  
-   ```bash
+    ```bash
     mkdir exercise-04
     cd exercise-04
     touch manifest.yaml .
-   ```
+    ```
 
-   Copy the below content into the manifest.yaml file.
+  Copy the below content into the manifest.yaml file.
  
-    ```yaml
-    ---
-    manifestVersion: "1.0"
+   ```yaml
+   ---
+   manifestVersion: "1.0"
 
-    projects:
-      - name: auto-tag
-        path: auto-tag
-        type: simple
+   projects:
+     - name: auto-tag
+       path: auto-tag
+       type: simple
 
-    environmentGroups:
-      - name: default
-        environments:
-          - name: development-environment
-            url:
-              type: environment
-              value: DT_TENANT_URL
-            auth:
-              token:
-                name: DT_API_TOKEN
+   environmentGroups:
+     - name: default
+       environments:
+         - name: development-environment
+           url:
+             type: environment
+             value: DT_TENANT_URL
+           auth:
+             token:
+               name: DT_API_TOKEN
    ```
  
 2. Save the changes
