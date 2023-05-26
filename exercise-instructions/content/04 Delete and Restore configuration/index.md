@@ -46,27 +46,24 @@ Since we'll be deleting the auto tagging rule created in exercise-1, let's make 
 
 ### Step 2 - Prepare the delete file
 
-1. Create a new directory for this exercise and copy the contents of the **manifest.yaml** file from Exercise-3.
-   Please make sure to locate the correct directory of exercise-3.
+1. Create a new directory and a **manifest.yaml** file for this exercise.
  
    ```bash
     mkdir exercise-04
     cd exercise-04
-    cp ../exercise-03/manifest.yaml .
+    touch manifest.yaml .
    ```
 
-   But don´t worry, below is the content of the manifest.yaml file that you can copy and paste.
+   Copy the below content into the manifest.yaml file.
  
     ```yaml
     ---
     manifestVersion: "1.0"
 
     projects:
-      - name: apps
-        path: apps
-        type: grouping
-      - name: infrastructure
-        path: infrastructure
+      - name: auto-tag
+        path: auto-tag
+        type: simple
 
     environmentGroups:
       - name: default
