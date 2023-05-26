@@ -222,10 +222,15 @@ To help you, the following references need to be created:
 
 * Notification `email-team-app-one-k8s-nodes` must reference the alerting profile in the `infrastructure` project.
 
-Once you have made your changes push your changes to Dynatrace by triggering the monaco command.
+Once you have made your changes push your changes to Dynatrace by triggering the monaco command. 
 
+First run it with a dry-run option
 ```bash
-  monaco deploy manifest.yaml
+monaco deploy manifest.yaml --dry-run
+```
+If there is no validation failure, continue with the real deployment.
+```bash
+monaco deploy manifest.yaml
 ```
 ---
 
@@ -297,9 +302,14 @@ We will walk through the changes required to link `notification` > `alerting-pro
 
 2. Run Monaco
 
-   ```bash
+    First run it with a dry-run option
+    ```bash
+    monaco deploy manifest.yaml --dry-run
+    ```
+    If there is no validation failure, continue with the real deployment.
+    ```bash
     monaco deploy manifest.yaml
-   ```
+    ```
 
 3. Confirm in Dynatrace, that you do indeed have all the configurations and that they are correctly linked to each other in this way:
 
