@@ -85,7 +85,7 @@ If we link these configurations together, Monaco can create all of them in one g
 
 3. In `infrastructure/_config.yaml`, looking at the definitions `alerting-profile-k8s-nodes`  configuration the `mzId` variable has been created, we need to supply the mapping for this variable.
 
-    ```yaml
+      ```yaml
      # alerting-profile
      - id: alerting-profile-k8s-nodes
         config:
@@ -96,7 +96,7 @@ If we link these configurations together, Monaco can create all of them in one g
           skip: false
         type:
           api: alerting-profile
-    ```
+      ```
 
     For the `mzId` field, we can now reference the management zones using Monaco references instead of IDs. The structure one of the following:
 
@@ -164,13 +164,13 @@ If we link these configurations together, Monaco can create all of them in one g
 1. First run it with a dry-run option
 
     ```bash
-      monaco deploy manifest.yaml --dry-run
+    monaco deploy manifest.yaml --dry-run
     ```
 
 2. If there is no validation failure, continue with the real deployment.
 
     ```bash
-      monaco deploy manifest.yaml
+    monaco deploy manifest.yaml
     ```
 
 ### Step 5 - View results in Dynatrace
