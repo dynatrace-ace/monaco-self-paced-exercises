@@ -1,10 +1,10 @@
 ## Exercise 3: Configuration variables
 
-Envision a scenario where you have similar application configurations, either in the same or in a different Dynatrace environment. You want to uniformly configure these applications so you use the same JSON template. How can you handle a requirement where one of the settings (e.g. user session coverage percentage) must be different across instances of this template?
+Envision a scenario where you have similar application configurations in the same or a different Dynatrace environment. You want to configure these applications using the same JSON template uniformly. How can you handle a requirement where one of the settings (e.g., user session coverage percentage) must differ across instances of this template?
 
-The goal of this exercise is to introduce variables in our JSON templates to manage this requirement.
+This exercise aims to introduce variables in our JSON templates to manage this requirement.
 
-Please [download the exercise-3 sample](https://github.com/dynatrace-ace/monaco-self-paced-exercises/releases/download/1.0.1/exercise03todownload.zip) by clicking on "Download raw file" button, unzip the file and copy the extracted files into a newly created folder.
+Please [download the exercise-3 sample zip file](https://github.com/dynatrace-ace/monaco-self-paced-exercises/releases/download/1.0.1/exercise03todownload.zip) and unzip it on your machine.
 
 ```bash
 mkdir exercise-03
