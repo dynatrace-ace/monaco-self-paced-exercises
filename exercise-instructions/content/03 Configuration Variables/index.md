@@ -203,21 +203,21 @@ Now that we have defined a variable in the JSON template, we can assign values t
 
 4. Take a closer look at the `apps/app-one/_config.yaml` and evaluate the following piece of the configuration parameters under  `# app-detection-rule`. `pattern` parameter is a type `compound` and it contains an `ingressDomain` parameter that has an environment variable `INGRESS_DOMAIN` .
 
-  ```yaml
-  parameters:
-    pattern:
-      type: compound
-      format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
-      references:
-        - protocol
-        - applicationSubdomain
-        - ingressDomain
-    protocol: http
-    applicationSubdomain: simplenodeservice-app-one
-    ingressDomain:
-      name: INGRESS_DOMAIN
-      type: environment
-  ```
+      ```yaml
+      parameters:
+        pattern:
+          type: compound
+          format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
+          references:
+            - protocol
+            - applicationSubdomain
+            - ingressDomain
+        protocol: http
+        applicationSubdomain: simplenodeservice-app-one
+        ingressDomain:
+          name: INGRESS_DOMAIN
+          type: environment
+      ```
 
   Create `INGRESS_DOMAIN` environment variable before executing the monaco deploy command. Otherwise, it will give an error message `environment variable INGRESS_DOMAIN not set`.
 
