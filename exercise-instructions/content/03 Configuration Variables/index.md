@@ -204,20 +204,20 @@ Now that we have defined a variable in the JSON template, we can assign values t
 4. Take a closer look at the `apps/app-one/_config.yaml` and evaluate the following piece of the configuration parameters under  `# app-detection-rule`.
    `pattern` parameter is a type `compound` and it contains an `ingressDomain` parameter that has an environment variable `INGRESS_DOMAIN`.
 
-    ```yaml
-      parameters:
-        pattern:
-          type: compound
-          format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
-          references:
-            - protocol
-            - applicationSubdomain
-            - ingressDomain
-        protocol: http
-        applicationSubdomain: simplenodeservice-app-one
-        ingressDomain:
-          name: INGRESS_DOMAIN
-          type: environment
+  ```yaml
+  parameters:
+    pattern:
+      type: compound
+      format: "{{ .protocol }}://{{ .applicationSubdomain }}.{{ .ingressDomain }}"
+      references:
+        - protocol
+        - applicationSubdomain
+        - ingressDomain
+    protocol: http
+    applicationSubdomain: simplenodeservice-app-one
+    ingressDomain:
+      name: INGRESS_DOMAIN
+      type: environment
     ```
 
     You need create `INGRESS_DOMAIN` environment variable before executing the monaco deploy command. Otherwise, it will give an error message `environment variable INGRESS_DOMAIN not set`.
@@ -228,17 +228,16 @@ Now that we have defined a variable in the JSON template, we can assign values t
 
 5. Run monaco deploy command first with dry-run option
     
-    ```bash  
+    ```bash
     monaco deploy manifest.yaml --dry-run   
     ```
     
 6. If there is no validation error, you can now run monaco without a dry-run option to apply the configurations on your Dynatrace environment
 
-    ```bash  
+    ```bash
     monaco deploy manifest.yaml 
     ```
     
-
 ### Step 5 - View results in Dynatrace
 
 1. As a last step, go to your Dynatrace environment and verify that Monaco updated the automatic tagging settings.
